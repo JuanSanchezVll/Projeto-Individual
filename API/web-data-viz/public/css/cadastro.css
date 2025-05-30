@@ -2,9 +2,9 @@
 
 body {
   margin: 0;
-  background-image: url("../assets/background.png");
-  width: 100%;
-  height: 740px;
+  background-image: url("../assets/Cadastro.jpeg");
+  width: auto;
+  height: auto;
   background-size: 100%;
 }
 
@@ -16,6 +16,7 @@ body {
   flex-direction: column;
 }
 
+
 #cadastro {
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@ body {
   border-radius: 7px;
   height: 28px;
   width: 80px;
-  border: #dcab20 solid 3px;
+  border: #ec6d11 solid 3px;
 }
 
 /* -----Balão de Cadastro------*/
@@ -125,9 +126,9 @@ span {
   width: 100%;
   height: 40px;
   font-weight: 700;
-  border: 3px solid #dcab20;
+  border: 3px solid #d70d0d;
   border-radius: 7px;
-  background-color: #ffda73;
+  background-color: #e00505;
 }
 
 .card h2 {
@@ -149,7 +150,7 @@ span {
 }
 
 button {
-  background-color: #dcab20;
+  background-color: #db4242;
   width: 180px;
   height: 36px;
   border: none;

@@ -5,18 +5,20 @@
 }
 
 body {
-    /* https://www.w3schools.com/css/css3_gradients.asp */
-    background: linear-gradient(to bottom, #2D2F25, #555A32);
+    background: url(../assets/Login.jpeg);
+    width: auto;
+    height: auto;
+    
     margin: 0;
 }
 
 .container-simulador {
-    background-color: #2A1110;
+    background-color: #000000;
     width: 50%;
     margin: auto;
     padding: 30px 20px;
     border-radius: 15px;
-    border: #DCAB20 2px solid;
+    border: #ff4800 2px solid;
     /*#F7A620*/
     color: #FFFFFF;
     margin-top: 10px;
@@ -44,7 +46,7 @@ body {
 
 .form h3 {
     text-align: center;
-    color: #FED722;
+    color: #ff690c;
     /*#F7A620*/
     font-size: 28px;
     font-weight: 600;
@@ -87,7 +89,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: #DCAB20;
+    background-color: #fe7716;
     color: #FFFFFF;
     padding: 10px;
     border: none;

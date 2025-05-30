@@ -9,18 +9,22 @@
 }
 
 .sidebar .logotipo {
-    width: 180px;
-    height: 60px;
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: left;
     align-items: center;
     padding-bottom: 13px;
     margin-bottom: 60px;
-    border-bottom: 3.5px solid white;
+    
 }
 
+
 .logotipo img {
-    height: 100%;
+    margin-left: 50px;
+    width: 130px;
+    height: 115px;
+   
 }
 
 /* .profile {

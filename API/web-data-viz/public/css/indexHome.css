@@ -12,23 +12,23 @@ body {
   /* permite o overlay ficar absoluto */
   background: url(../assets/FundoImg.PNG);
   width: 100%;
-  height: 650px;
+  height: 700px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
-.home .overlay {
+/* .home .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
-  /* aumenta esse valor se quiser mais escuro */
-  z-index: 0;
-}
+  background-color: rgba(0, 0, 0, 0.55); */
+/* aumenta esse valor se quiser mais escuro */
+/* z-index: 0;
+} */
 
 .conteudo-home {
   position: relative;
@@ -139,11 +139,11 @@ body {
   align-items: center;
   font-weight: 600;
   color: #ffffff;
-  background-color: #DCAB20;
-  border-radius: 7px;
+  background-color: #ef6d11;
+  /* border-radius: 7px; */
   height: 28px;
   width: 80px;
-  border: #DCAB20 solid 3px;
+  border: #f36a09 solid 3px;
   transition: background-color 0.4s ease;
 
 }
@@ -161,11 +161,11 @@ body {
   align-items: center;
   font-weight: 600;
   color: #ffffff;
-  background-color: #DCAB20;
+  background-color: #f36a09;
   border-radius: 7px;
   height: 28px;
   width: 80px;
-  border: #DCAB20 solid 3px;
+  border: #f36a09 solid 3px;
   transition: background-color 0.4s ease;
 
 }
@@ -175,8 +175,6 @@ body {
   color: #2A1110;
   font-weight: 600;
 }
-
-
 
 
 /*Banner*/
@@ -207,7 +205,7 @@ body {
 
 button {
   margin-top: 40px;
-  background-color: #DCAB20;
+  background-color: #f05825;
   width: 150px;
   height: 40px;
   border: none;
@@ -218,6 +216,26 @@ button {
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
+
+.btn-container {
+
+  display: flex;
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: center;
+  /* centraliza verticalmente */
+  height: 100vh;
+
+}
+
+#btn-juntese-a-nós {
+  margin-top: 300px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 
 button a {
   color: white;
@@ -232,12 +250,9 @@ button a {
 
 
 
-
-
-
 /*Sobre Nós*/
 .sobre {
-  background-color: #555A32;
+  background-color: #252621;
   padding: 3%;
   height: 500px;
 
@@ -276,7 +291,7 @@ button a {
 }
 
 
-/*Projeto Monibber*/
+/*Eventos*/
 .projeto {
   padding: 50px;
 
@@ -316,7 +331,7 @@ button a {
 }
 
 .projeto button {
-  background-color: #DCAB20;
+  background-color: #ff8522;
   border: none;
   width: 200px;
   height: 50px;
@@ -333,7 +348,7 @@ button a {
 
 
 
-/*Como Surgiu?*/
+/*Frase*/
 .contexto {
   background-color: #2D2F25;
   display: flex;
@@ -358,7 +373,7 @@ button a {
   font-weight: 700;
   border-bottom: 5px solid #555A32;
   padding-bottom: 25px;
-  width: 400px;
+  width: 450px;
 
 }
 
@@ -384,9 +399,13 @@ button a {
 .contexto .container .texto button a {
   color: #ffffff;
   font-weight: 500;
+
 }
 
+.imagem {
 
+  height: 70vh;
+}
 
 
 
@@ -522,7 +541,9 @@ button a {
 
 /* Contato*/
 .fale-conosco {
-  background-color: #2D2F25;
+  background: url(../assets/footer.jpg);
+  width: auto;
+  height: 500px;
   padding: 150px 40px;
   color: white;
 
@@ -557,12 +578,12 @@ button a {
   font-size: 20px;
   border: none;
   border-radius: 5px;
-  width: 98%;
+  width: 700px;
   resize: none;
 }
 
 .formulario button {
-  background-color: #DCAB20;
+  background-color: #ff7220;
   color: #ffffff;
   border: none;
   border-radius: 6px;
