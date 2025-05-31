@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
+<!-- Header -->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/assets/main.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <!-- <link rel="icon" href="./assets/Monibeer (1) 1.png"> -->
+    <script src="./js/sessao.js"></script>
 
+<<<<<<< HEAD
   <title>Cadastro - Castor</title>
 
   <script src="./js/sessao.js"></script>
@@ -82,79 +88,35 @@
                 <span>Data de Nascimento:</span>
                 <input id="dtNasc_input" type="date" />
               </div>
-            </div>
-            <div class="campo-linha">
-              <div class="campo">
-                <span>Telefone</span>
-                <input id="telefone_input" type="number" placeholder="(11) 987654321" />
-              </div>
-              <div class="campo">
-                <span>E-mail</span>
-                <input id="email_input" type="text" placeholder="carlos@gmail.com" />
-              </div>
-            </div>
-            <div class="campo-linha">
-              <div class="campo">
-                <span>Senha</span>
-                <input id="senha_input" type="password" placeholder="******" />
-              </div>
-              <div class="campo">
-                <span>Confirmação da Senha</span>
-                <input id="confirmacao_senha_input" type="password" placeholder="******" />
-              </div>
-            </div>
-          </div>
-          <button onclick="mudarFormulario(formulario_cadastro, formulario_endereco)">Proximo ></button>
-        </div>
-        <!-- fim formulario dados pessoais -->
+=======
+    <title>Cadastro - Castor</title>
+</head>
 
-        <!-- inicio formulario endereco -->
-        <div class="formulario" id="formulario_endereco">
-          <div class="campo-dados-pessoais">
-            <h3>Endereço</h3>
-            <div class="campo-linha">
-              <div class="campo campo1" id="cep_div">
-                <span>CEP</span>
-                <input id="cep_input" type="number" />
-              </div>
-              <div class="campo campo2" id="rua_div">
-                <span>Rua</span>
-                <input id="rua_input" type="text" />
-              </div>
-              <div class="campo campo3" id="numero_div">
-                <span>Número</span>
-                <input id="numero_input" type="number" />
-              </div>
+<body>
+    <div class="cadastro">
+        <div class="header">
+            <div class="container">
+                <a href="./index.html">
+                    <img src="assets/logoCastor.png" alt="Logo Castor">
+                </a>
+                <div class="navbar">
+                    <ul class="menu-center">
+                        <li><a id="home" href="./index.html">Home</a></li>
+                        <li><a href="./index.html">Sobre Nós</a></li>
+                        <li><a href="simulador.html">Simulador</a></li>
+                    </ul>
+                    <ul class="menu-right">
+                        <li><a id="login" href="login.html">Login</a></li>
+                        <li><a id="cadastro" href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+>>>>>>> ac59fb286863ee17e98a88b8a3ffd69ab04806ae
             </div>
-            <div class="campo-linha">
-              <div class="campo campo4" id="complemento_div">
-                <span>Complemento</span>
-                <input id="complemento_input" type="text" placeholder="Seu nome" />
-              </div>
-            </div>
-            <div class="campo-linha">
-              <div class="campo campo1" id="bairro_div">
-                <span>Bairro</span>
-                <input id="bairro_input" type="text" placeholder="" />
-              </div>
-              <div class="campo campo2" id="cidade_div">
-                <span>Cidade</span>
-                <input id="cidade_input" type="text" placeholder="" />
-              </div>
-              <div class="campo campo3" id="estado_div">
-                <span>Estado</span>
-                <input id="estado_input" type="text" placeholder="" />
-              </div>
-            </div>
-          </div>
-          <div class="buttons">
-            <button onclick="mudarFormulario(formulario_endereco, formulario_cadastro)">
-              < Voltar</button>
-                <button onclick="mudarFormulario(formulario_endereco, formulario_desbravadores)">Próximo ></button>
-          </div>
         </div>
-        <!-- final formulario endereco -->
 
+        <!-- Container com os dados informados -->
+
+<<<<<<< HEAD
         <!-- inicio formulario desbravadores -->
         <div class="formulario" id="formulario_desbravadores" style="display: flex;">
           <div class="campo-desbravadores">
@@ -418,117 +380,82 @@
             <button onclick="mudarFormulario(formulario_desbravadores, formulario_endereco)" id="voltar">Voltar</button>
             <button onclick="cadastrar()" id="proximo">Cadastrar &gt;</button>
           </div>
+=======
+
+        <div class="container-cadastro">
+            <div class="card"> <!-- estou criando aqui o balão de cadastro -->
+                <h2>Cadastro</h2>
+                <br><br>
+                <div class="card-campo">
+                    <div class="campo">
+                        <span>Nome Completo</span>
+                        <br><br>
+                        <input type="text" id="input_nome"> <br><br><br>
+                    </div>
+                    <div class="campo">
+                        <span>E-mail*</span>
+                        <br><br>
+                        <input type="text" id="input_email"> <br><br><br>
+                    </div>
+                    <div class="campo">
+                        <span>Telefone*</span>
+                        <br><br>
+                        <input type="number" id="input_telefone"> <br><br><br>
+                    </div>
+                    <!-- <div class="campo">
+                        <span> Cadastrar Senha:*</span>
+                        <br><br>
+                        <input type="password" id="input_senha"> <br><br><br>
+                    </div> -->
+                    <div id="div_aguardar" class="loading-div">
+                        <!-- <img src="./assets/circle-loading.gif" id="loading-gif" /> -->
+                    </div>
+
+                    <div class="confbotao">
+                        <button onclick="cadastrar()" class="botao">Cadastro Empresa</button>
+                    </div>
+                     <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+            </div>
+>>>>>>> ac59fb286863ee17e98a88b8a3ffd69ab04806ae
         </div>
-        <!-- fim formulario desbravadores -->
-      </div>
     </div>
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
-  </div>
-  <!-- fim cadastro -->
-  <div id="div_erros_login"></div>
-  <script src="./js/script.js"></script>
+
+    <div id="div_mensagem"></div>
 </body>
 
 </html>
 
+
+<!-- JAVA SCRIPT -->
 <script>
-  formulario_cadastro.style.display = 'none'
-  formulario_endereco.style.display = 'none'
-  formulario_desbravadores.style.display = 'flex'
+    function analisar(event) {
+        event.preventDefault(); // Impede o recarregamento da página
 
-  var idade = 0
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var cnpj = input_cnpj.value;
+        var telefone = input_telefone.value;
+        // var senha = input_senha.value;
 
-  function calcularIdade() {
-    idade = ""
-    var dtNasc = dtNasc_input.value
-    var anoAtual = 2024
+        if (email == "" || cnpj == "" || telefone == "") {
+            alert(`Preencha todos os campos obrigatórios`)
 
-    for (var i = 0; i <= 3; i++) {
-      idade += dtNasc[i]
-    }
-    console.log(idade)
+        } else if (!email.includes("@")) {
+            alert(`Preencha um E-mail válido`)
 
-    idade = anoAtual - Number(idade)
-    console.log(idade)
+        } else {
+            alert(`Cadastro de Empresa - Realizado com Sucesso!`)
 
-    if (idade >= 16) {
-      select_cargo_desbravador.style.display = 'none'
-      select_cargo_diretoria.style.display = 'flex'
-      return
-    }
-    select_cargo_diretoria.style.display = 'none'
-    select_cargo_desbravador.style.display = 'flex'
-    return
-  }
+            window.location.href = "./cadastro-usuario.html"; //faz a navegação automática
 
-  sessionStorage.IDADE = idade
-
-  setTimeout(() => {
-    criarEspecialidades()
-  }, 1000)
-
-  function criarEspecialidades() {
-    for (var categoriaAtual = 0; categoriaAtual < categorias.length; categoriaAtual++) {
-      var categoria = categorias[categoriaAtual]
-      var div = "div_" + categoria.caminho
-      var html = `<div id="${div}" class="card-especialidades scroll-moderno">`
-
-      for (var espAtual = 0; espAtual < categoria.especialidades.length; espAtual++) {
-        var especialidade = categoria.especialidades[espAtual]
-        html += `
-                <label class="label-especialidades">
-                <input type="checkbox" id="input_${especialidade.caminho}">
-                <div class="campo-especialidade">
-                <img src="./assets/icon/especialidades/${categoria.caminho + especialidade.caminho}.png">
-                <span> ${especialidade.nome} </span>
-                </div>
-                </label>`
-      }
-      html += `</div>`
-      div_especialidades.innerHTML += html
-      var divCategoria = document.getElementById("div_" + categoria.caminho)
-      divCategoria.style.display = 'none'
-    }
-    inserirIdInputsEspecialidades()
-  }
-
-  function mudarFormulario(atual, proximo) {
-    atual.style.display = 'none'
-    proximo.style.display = 'flex'
-    if (proximo == formulario_desbravadores) {
-      calcularIdade()
-    }
-  }
-
-  const listaIdInputEspecialidades = []
-  function inserirIdInputsEspecialidades() {
-
-    for (var categoriaAtual = 0; categoriaAtual < categorias.length; categoriaAtual++) {
-      var categoria = categorias[categoriaAtual]
-      var divId = "div_" + categoria.caminho
-      var divCategoria = document.getElementById(divId)
-
-      if (divCategoria) {
-        for (var espAtual = 0; espAtual < categoria.especialidades.length; espAtual++) {
-          var especialidade = categoria.especialidades[espAtual]
-          var inputId = document.getElementById("input_" + especialidade.caminho)
-
-          listaIdInputEspecialidades.push(inputId)
         }
-      }
     }
-  }
 
-  function verificarOpcaoSelecionada(opcao) {
-    for (var categoriaAtual = 0; categoriaAtual < categorias.length; categoriaAtual += 1) {
-      var caminho = categorias[categoriaAtual].caminho
-      var div = document.getElementById("div_" + caminho)
-      div.style.display = 'none'
 
+<<<<<<< HEAD
       if (opcao.value == caminho) {
         div.style.display = 'flex'
       }
@@ -581,141 +508,53 @@
   }
 
   inicializarArray();
+=======
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+   // let listaEmpresasCadastradas = [];
+>>>>>>> ac59fb286863ee17e98a88b8a3ffd69ab04806ae
 
   function cadastrar() {
+    //analisar();
     // aguardar();
+
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    let listaIdsRecuperada = JSON.parse(localStorage.getItem('listaIds'));
-    // variaveis da tabela membro
-    var idMembro = listaIdsRecuperada[listaIdsRecuperada.length - 1] + 1
-    var nomeVar = nome_input.value;
-    var dtNascVar = dtNasc_input.value;
-    var telefoneVar = telefone_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    // console.log('Nome: ' + nomeVar, 'Data Nasc.: ' + dtNascVar, 'Telefone: ' + telefoneVar, 'Email: ' + emailVar, 'Senha:' + senhaVar)
-
-    // variaveis da tabela endereço
-    var cepVar = cep_input.value;
-    var ruaVar = rua_input.value;
-    var numeroVar = numero_input.value;
-    var complementoVar = complemento_input.value;
-    var bairroVar = bairro_input.value;
-    var cidadeVar = cidade_input.value;
-    var estadoVar = estado_input.value;
-    // console.log('CEP: ' + cepVar, 'Rua: ' + ruaVar, 'Numero: ' + numeroVar, 'Complemento: ' + complementoVar, 'Bairro: ' + bairroVar, 'Cidade: ' + cidadeVar, 'Estado: ' + estadoVar)
-
-    listaClassesSelecionadas = []
-    // inserção de dados na lista de classes selecionadas
-    inserirClassesSelecionadasLista()
-
-    var checkUnidade = document.getElementsByName("check_unidade")
-    var unidadeVar = ''
-
-    for (var unidadeI = 0; unidadeI < checkUnidade.length; unidadeI += 1) {
-      if (checkUnidade[unidadeI].checked) {
-        unidadeVar = checkUnidade[unidadeI].value
-        console.log("Unidade: " + unidadeVar)
-      }
-    }
-
-    var selectCargoDiretoria = document.getElementById('select_cargo_diretoria')
-    var selectCargoDesbravador = document.getElementById('select_cargo_desbravador')
-    var cargo = selectCargoDiretoria.value
-
-    if (selectCargoDiretoria.style.display == 'none') {
-      cargo = selectCargoDesbravador.value
-    }
-    console.log(cargo)
-
-    listaEspecialidadesSelecionadas = []
-    //inserção de dados na lista de especialidades selecionadas
-    inserirEspecialidadesSelecionadasLista()
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var cnpjVar = input_cnpj.value;
+    var telefoneVar = input_telefone.value;
+    /*var codigoVar = codigo_input.value;
+    var idEmpresaVincular*/
 
     // Verificando se há algum campo em branco
     if (
-      nomeVar == "" ||
-      dtNascVar == "" ||
-      telefoneVar == "" ||
-      emailVar == "" ||
-      cepVar == "" ||
-      ruaVar == "" ||
-      numeroVar == "" ||
-      complementoVar == "" ||
-      bairroVar == "" ||
-      cidadeVar == "" ||
-      estadoVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+        nomeVar == "" ||
+        emailVar == "" ||
+        cnpjVar == "" ||
+      telefoneVar == "" 
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Preencha todos os campos";
+        mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
 
-      // finalizarAguardar();
-      setInterval(sumirMensagem, 4000);
+      finalizarAguardar();
       return false;
-
-    } else if (idade < 10) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Você não tem idade suficiente para se cadastrar"
-      setInterval(sumirMensagem, 4000);
-
-    } else if (telefoneVar.length != 11) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Número de telefone inválido"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Email inválido"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (verificarSenhaInvalida(senhaVar)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Senha inválida"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (confirmacaoSenhaVar != senhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Confirmação da senha está diferente da senha"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (estadoVar.length > 2) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Estado inválido"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (verificarClassesInvalidas(listaClassesSelecionadas)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Quantidade de classes inválida"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (verificarEspecialidadesInvalidas(listaEspecialidadesSelecionadas)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Quantidade de especialidades inválida"
-      setInterval(sumirMensagem, 4000);
-      return false
-
-    } else if (unidadeVar == "") {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Selecione uma unidade"
-      setInterval(sumirMensagem, 4000);
-      return false
-    } else if (cargo == '#') {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Selecione um cargo"
-      setInterval(sumirMensagem, 4000);
-      return false
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
+
+    // Verificando se o código de ativação é de alguma empresa cadastrada
+    /*for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        console.log("Código de ativação válido.");
+        break;
+      } else {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        finalizarAguardar();
+      }
+    }*/
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -726,33 +565,16 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        idMembroServer: idMembro,
         nomeServer: nomeVar,
-        dtNascServer: dtNascVar,
-        telefoneServer: telefoneVar,
+        cnpjServer: cnpjVar,
         emailServer: emailVar,
-        cepServer: cepVar,
-        ruaServer: ruaVar,
-        numeroServer: numeroVar,
-        complementoServer: complementoVar,
-        bairroServer: bairroVar,
-        cidadeServer: cidadeVar,
-        estadoServer: estadoVar,
-        senhaServer: senhaVar,
-        listaClassesServer: listaClassesSelecionadas,
-        listaEspecialidadesServer: listaEspecialidadesSelecionadas,
-        unidadeServer: unidadeVar,
-        cargoServer: cargo
+        telefoneVar: telefoneVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-
-          listaIdsRecuperada.push(idMembro);
-          localStorage.setItem('listaIds', JSON.stringify(listaIdsRecuperada));
-
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
@@ -760,7 +582,7 @@
 
           setTimeout(() => {
             window.location = "login.html";
-          }, 1000);
+          }, "2000");
 
           limparFormulario();
           finalizarAguardar();
@@ -776,50 +598,29 @@
     return false;
   }
 
-  function verificarSenhaInvalida(senha) {
-    const maisculas = /[A-Z]/
-    const numeros = /[0-9]/
-    const caracteresEspeciais = /[!@#$%^&*(),.?":{}|<>]/
+  // Listando empresas cadastradas 
+  /* function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresasCadastradas.push(empresa);
 
-    if (senha.search(maisculas) == -1 || senha.search(numeros) == -1 || senha.search(caracteresEspeciais) == 1) {
-      return true
-    }
-    return false
-  }
-
-  function verificarClassesInvalidas(classes) {
-    if (idade == 10 && classes.length > 2) {
-      return true
-    } else if (idade == 11 && classes.length > 4) {
-      return true
-    } else if (idade == 12 && classes.length > 6) {
-      return true
-    } else if (idade == 13 && classes.length > 8) {
-      return true
-    } else if (idade == 14 && classes.length > 10) {
-      return true
-    }
-    return false
-  }
-
-  function verificarEspecialidadesInvalidas(especialidades) {
-    if (idade == 10 && especialidades.length > 7) {
-      return true
-    } else if (idade == 11 && especialidades.length > 14) {
-      return true
-    } else if (idade == 12 && especialidades.length > 21) {
-      return true
-    } else if (idade == 13 && especialidades.length > 28) {
-      return true
-    } else if (idade == 14 && especialidades.length > 35) {
-      return true
-    } else if (idade == 15 && especialidades.length > 42) {
-      return true
-    }
-    return false
-  }
+            console.log("listaEmpresasCadastradas")
+            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }*/
 
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
+
+
 </script>
