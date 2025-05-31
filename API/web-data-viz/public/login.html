@@ -1,176 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+<!-- Header -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Topazio</title>
-
-
-
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/cadastro_login.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/assets/main.css" />
+  <link rel="stylesheet" href="./css/login.css" />
+  <title>Login - Castor</title>
 </head>
 
 <body>
-
-    <!--Header-->
+  <div class="login">
     <div class="header">
-        <div class="container">
-            <div class="logo" onclick="redirecionarHome()">
-                <img src="assets/icon/logo.png">
-                <h2>Topázio</h2>
-            </div>
-            <ul class="nav-bar">
-                <li id="li_select" class="li-select">
-                    <a id="ancor_quem_somos" class="titulo-select text" href="quemSomos.html">Quem Somos</a>
-                    <Select id="select_quem_somos" class="menu text" onchange="redirecionar(select_quem_somos)">
-                        <option value="nada" class="nada" selected></option>
-                        <option value="quemSomos.html">Desbravadores</option>
-                        <option value="clube_topazio">Clube Topázio</option>
-                    </Select>
-                </li>
-                <li>
-                    <a class="text" href="sobre_mim.html">Sobre Mim</a>
-                </li>
-                <li id="li-select" class="li-select">
-                    <a id="ancor_projetos" class="titulo-select text" href="projetos.html">Projetos</a>
-                    <select id="select_projetos" class="menu text class" onchange="redirecionar(select_projetos)">
-                        <option value="projetos" class="nada"></option>
-                        <option value="arrecadacao_alimento">Arrecadação de Alimentos</option>
-                        <option value="campanha_agasalho">Campanha de Agasalhos</option>
-                        <option value="quebrando_silencio">Quebrando o Silêncio</option>
-                        <option value="missao_calebe">Missão Calebe</option>
-                    </select>
-                </li>
-                <li>
-                    <a href="cadastro.html" class="text">Cadastrar</a>
-                </li>
-                <li>
-                    <a href="login.html" class="text">Login</a>
-                </li>
-            </ul>
+      <div class="container">
+        <a href="./index.html">
+          <img src="assets/logoCastor.png" alt="Logo Castor">
+        </a>
+        <div class="navbar">
+          <ul class="menu-center">
+            <li><a id="home" href="./index.html">Home</a></li>
+            <li><a href="./index.html">Sobre Nós</a></li>
+            <li><a href="simulador.html">Simulador</a></li>
+          </ul>
+          <ul class="menu-right">
+            <li><a id="login" href="login.html">Login</a></li>
+            <li><a id="cadastro" href="cadastro.html">Cadastro</a></li>
+          </ul>
         </div>
+      </div>
     </div>
+    <!-- Container com os dados informados -->
 
-
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+    <div class="container-login">
+      <div class="card">
+        <!-- estou criando aqui o balão de cadastro -->
+        <h2>Login</h2>
+        <br /><br />
+        <div class="card-campo">
+          <form id="formLogin">
+            <div class="campo"></div>
+            <div class="campo">
+              <span>Email</span>
+              <br /><br />
+              <input type="text" id="input_email" /> <br /><br /><br />
             </div>
-        </div>
-        <div class="container">
-            <div class="formulario">
-                <div class="campo-imagem">
-                    <span>Bem Vindo de Volta!</span>
-                    <img src="./assets/img/imagem-login.jpg">
-                </div>
-                <div class="campo-login">
-                    <h1>Login</h1>
-                    <div class="campo">
-                        <span>Email</span>
-                        <input type="text" id="input_email">
-                    </div>
-                    <div class="campo">
-                        <span>Senha</span>
-                        <input type="text" id="input_senha">
-                    </div>
-                    <button onclick="entrar()">Entrar</button>
-                </div>
+            <div class="campo"></div>
+            <div class="campo"></div>
+            <div class="campo">
+              <span>Senha</span>
+              <br /><br />
+              <input type="password" id="input_senha" /> <br /><br /><br />
             </div>
-            <div id="div_erros_login"></div>
+            <div id="div_mensagemerro"></div>
+            <div class="campo"></div>
+            <div class="confbotao">
+              <button onclick="analisar(event)" class="botao">Login</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-
+  </div>
+  <div id="div_mensagem"></div>
 </body>
 
-<script src="./js/sessao.js"></script>
-<script src="./js/script.js"></script>
 </html>
 
+<!-- JAVA SCRIPT -->
 <script>
+  function analisar(event) {
+    event.preventDefault(); // Impede o recarregamento da página
 
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var emaillogin = 'juan@hotmail.com';
+    var emailsenha = "123";
 
-    function entrar() {
-        // aguardar();
-
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.DATA_NASC_USUARIO = json.dtNasc;
-                    sessionStorage.TELEFONE_USUARIO = json.telefone
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.ENDERECO_USUARIO = json.endereco;
-                    sessionStorage.CLASSES_USUARIO = json.classes;
-                    sessionStorage.ESP_USUARIO = json.especialidades;
-                    sessionStorage.CARGO_USUARIO = json.cargos;
-                    sessionStorage.UNIDADE_USUARIO = json.unidade;
-                    sessionStorage.QTD_ESPECIALIDADES = json.qtdEspecialidades;
-                    sessionStorage.INTERVALO = json.intervalo;
-                    sessionStorage.SEQUENCIA = json.sequencia;
-
-                    setTimeout(function () {
-                        window.location = "dashboard/visao_geral.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+    if (email == "" || senha == "") {
+      alert(`Preencha todos os campos obrigatórios`);
+    } else if (!email.includes("@")) {
+      alert(`Preencha com um email válido válida`);
+    } else if (email == emaillogin && senha == emailsenha) {
+      window.location.href = "index-dashboard.html"; // Faz a navegação automática
+    } else {
+      div_mensagemerro.innerHTML = `<span style="color: red;">Matrícula ou Senha incorretos!</span>`;
     }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
+  }
 </script>

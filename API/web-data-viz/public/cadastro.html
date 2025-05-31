@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Topázio</title>
+  <title>Cadastro - Castor</title>
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/cadastro_login.css">
+
+  <link rel="stylesheet" href="./css/cadastro.css">
   <link rel="icon" href="assets/icon/logo.png" />
   <!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
 </head>
@@ -21,17 +21,22 @@
   <!--header inicio-->
   <div class="header">
     <div class="container">
+
       <div class="logo" onclick="redirecionarHome()">
-        <img src="assets/icon/logo.png">
-        <h2>Topázio</h2>
+        <a href="index.html">
+          <img src="assets/logoCastor.png">
+        </a>
+
       </div>
+
+
       <ul class="nav-bar">
         <li id="li_select" class="li-select">
           <a id="ancor_quem_somos" class="titulo-select text" href="quem-somos.html">Quem Somos</a>
           <Select id="select_quem_somos" class="menu text" onchange="redirecionar(select_quem_somos)">
             <option value="nada" class="nada" selected></option>
             <option value="quem-somos.html">Desbravadores</option>
-            <option value="clube_topazio">Clube Topázio</option>
+            <option value="clube_topazio">Clube Castor</option>
           </Select>
         </li>
         <li>
@@ -151,7 +156,7 @@
         <!-- final formulario endereco -->
 
         <!-- inicio formulario desbravadores -->
-        <div class="formulario" id="formulario_desbravadores">
+        <div class="formulario" id="formulario_desbravadores" style="display: flex;">
           <div class="campo-desbravadores">
             <div class="campo-classes">
               <h3>Classes</h3>
@@ -248,36 +253,36 @@
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Ônix">
                   <div class="campo-unidade onix">
-                    <img src="assets/icon/unidades/onix.png">
-                    <span>Ônix</span>
+                    <!-- <img src="assets/icon/unidades/onix.png"> -->
+                    <span>Leõs</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Ametista">
                   <div class="campo-unidade ametista">
-                    <img src="assets/icon/unidades/ametista.png">
-                    <span>Ametista</span>
+                    <!-- <img src="assets/icon/unidades/ametista.png"> -->
+                    <span>Panteras</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Jaspe">
                   <div class="campo-unidade jaspe">
-                    <img src="assets/icon/unidades/jaspe.png">
-                    <span>Jaspe</span>
+                    <!-- <img src="assets/icon/unidades/jaspe.png"> -->
+                    <span>Guepardos</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Safira">
                   <div class="campo-unidade safira">
-                    <img src="assets/icon/unidades/safira.png">
-                    <span>Safira</span>
+                    <!-- <img src="assets/icon/unidades/safira.png"> -->
+                    <span>Onças</span>
                   </div>
                 </label>
               </div>
               <div class="cargos">
                 <h3>Cargo</h3>
                 <select id="select_cargo_diretoria" name="select_cargo">
-                  <option value="#" selected disabled>Escolha uma opção</option>
+                  <option value="#" selected="" disabled="">Escolha uma opção</option>
                   <option value="Conselheiro">Conselheiro</option>
                   <option value="Conselheiro Associado">Conselheiro Associado</option>
                   <option value="Diretor">Diretor</option>
@@ -287,7 +292,7 @@
                   <option value="Instrutor">Instrutor</option>
                 </select>
                 <select id="select_cargo_desbravador" name="select_cargo">
-                  <option value="#" selected disabled>Escolha uma opção</option>
+                  <option value="#" selected="" disabled="">Escolha uma opção</option>
                   <option value="Capitão de Unidade">Capitão de Unidade</option>
                   <option value="Secretário de Unidade">Secretário de Unidade</option>
                   <option value="Tesoureiro de Unidade">Tesoureiro de Unidade</option>
@@ -298,15 +303,120 @@
             <div class="especialidades" id="div_especialidades">
               <h3>Especialidades</h3>
               <select id="select_categoria" onchange="verificarOpcaoSelecionada(select_categoria)">
-                <option value="#" selected disabled>Escolha uma opção</option>
+                <option value="#" selected="" disabled="">Escolha uma opção</option>
                 <option value="0-atividades-recreativas/">Atividades Recreativas</option>
                 <option value="1-artes-habilidades-manuais/">Artes Habilidades Manuais</option>
               </select>
+
+              <div id="div_0-atividades-recreativas/" class="card-especialidades scroll-moderno" style="display: none;">
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_0-arte-acampar">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/0-arte-acampar.png">
+                    <span> Arte de Acampar </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_1-cultura-fisica">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/1-cultura-fisica.png">
+                    <span> Cultura Física </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_2-natacao-principiante">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/2-natacao-principiante.png">
+                    <span> Natação Principiante I </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_3-acampamento-1">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/3-acampamento-1.png">
+                    <span> Acampamento I </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_4-ordem-unida">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/4-ordem-unida.png">
+                    <span> Ordem Unida </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_5-excursionismo-pedestre">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/5-excursionismo-pedestre.png">
+                    <span> Excursionismo Pedestre </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_6-mapa-bussola">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/0-atividades-recreativas/6-mapa-bussola.png">
+                    <span> Mapa e Bússola </span>
+                  </div>
+                </label>
+              </div>
+
+              <div id="div_1-artes-habilidades-manuais/" class="card-especialidades scroll-moderno"
+                style="display: flex;">
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_0-eva">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/0-eva.png">
+                    <span> E.V.A </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_1-trabalho-agulha">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/1-trabalho-agulha.png">
+                    <span> Trabalhos com Agulha </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_2-cultura-indigena">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/2-cultura-indigena.png">
+                    <span> Cultura Indígena </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_3-modelagem-sabao">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/3-modelagem-sabao.png">
+                    <span> Modelagem e Fabricação de Sabão </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_4-modelagem-gesso">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/4-modelagem-gesso.png">
+                    <span> Modelagem em Gesso </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_5-origami">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/5-origami.png">
+                    <span> Origami </span>
+                  </div>
+                </label>
+                <label class="label-especialidades">
+                  <input type="checkbox" id="input_6-corrida-carrinhos-madeira">
+                  <div class="campo-especialidade">
+                    <img src="./assets/icon/especialidades/1-artes-habilidades-manuais/6-corrida-carrinhos-madeira.png">
+                    <span> Corrida de Carrinhos de Madeira </span>
+                  </div>
+                </label>
+              </div>
             </div>
           </div>
           <div class="buttons">
             <button onclick="mudarFormulario(formulario_desbravadores, formulario_endereco)" id="voltar">Voltar</button>
-            <button onclick="cadastrar()" id="proximo">Cadastrar ></button>
+            <button onclick="cadastrar()" id="proximo">Cadastrar &gt;</button>
           </div>
         </div>
         <!-- fim formulario desbravadores -->
@@ -464,13 +574,13 @@
   }
 
   function inicializarArray() {
-  if (!localStorage.getItem('listaIds')) {
-    const listaIds = [0]
-    localStorage.setItem('listaIds', JSON.stringify(listaIds));
+    if (!localStorage.getItem('listaIds')) {
+      const listaIds = [0]
+      localStorage.setItem('listaIds', JSON.stringify(listaIds));
+    }
   }
-}
 
-inicializarArray();
+  inicializarArray();
 
   function cadastrar() {
     // aguardar();
