@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100%;
+}
+
+.dashboard .menu {
+  width: 15%;
+  background: linear-gradient(to bottom,  #0f0e6c,  #000030);
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .menu h1 {
+  font-size: 24px;
+  margin: 1% 2% 20% 2%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard .menu .opt-menu {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dashboard .menu .opt-menu a {
+  width: 80%;
+  height: 15%;
+  background-color: rgb(4, 0, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid white;
+  text-decoration: none;
+  color: white;
+}
+
+.dashboard .menu .opt-menu span {
+  width: 80%;
+  height: 15%;
+  background-color: rgb(4, 0, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid white;
+  text-decoration: none;
+  color: white; 
+}
+
+.dashboard .menu span {
+  width: 50%;
+  border-bottom: 1px solid white;
+  color: white; 
+  padding: 1%;
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.dashboard .menu span span{
+  border :0;
+}
+
+.dashboard .dash {
+  align-self: center;
+  justify-self: center;
+  width: 70%;
+  height: 80%;
+  margin: 5% 6%;
+  display: flex;
+  border: 2px solid #0f0e6c;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px #00000052;
+}
+.dashboard .kpis {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-right: 1px solid #000030;
+}
+
+.dashboard .kpi {
+  width: 70%;
+  height: 28%;
+  border-radius: 15px;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px #00000052;
+}
+
+.dashboard .kpi .titulo_kpi {
+  width: 96%;
+  padding: 2%;
+  background-color: #0f0e6c;
+  color: white;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+
+.dashboard .kpi .dado_kpi {
+  padding: 15% 10%;
+  font-size: 24px;
+  color: black;
+}
+
+.dashboard .tituloGraficos {
+  text-align: center;
+}
+
+ 
