@@ -15,47 +15,27 @@
 
 <body>
 
-  <!--header inicio-->
+  <!-- SEÇÃO NAV -->
   <div class="header">
     <div class="container">
-      <div class="logo" onclick="redirecionarHome()">
-        <a href="index.html">
-          <img src="assets/img/logoCastor.png" alt="Logo Castor">
-        </a>
-
+      <a href="./index.html">
+        <img src="assets/img/logoCastor.png" alt="Logo Castor">
+      </a>
+      <div class="navbar">
+        <ul class="menu-center">
+          <li><a id="home" href="index.html">Home</a></li>
+          <li><a href="index.html">Sobre Nós</a></li>
+          <li><a href="simulador.html">Simulador</a></li>
+        </ul>
+        <ul class="menu-right">
+          <li><a id="login" href="login.html">Login</a></li>
+          <li><a id="cadastro" href="cadastro.html">Cadastro</a></li>
+        </ul>
       </div>
-      <ul class="nav-bar">
-        <li id="li_select" class="li-select">
-          <a id="ancor_quem_somos" class="titulo-select text" href="quem-somos.html">Quem Somos</a>
-          <Select id="select_quem_somos" class="menu text" onchange="redirecionar(select_quem_somos)">
-            <option value="nada" class="nada" selected></option>
-            <option value="quem-somos.html">Desbravadores</option>
-            <option value="clube_topazio">Clube Topázio</option>
-          </Select>
-        </li>
-        <li>
-          <a class="text" href="sobre_mim.html">Sobre Mim</a>
-        </li>
-        <li id="li-select" class="li-select">
-          <a id="ancor_projetos" class="titulo-select text" href="projetos.html">Projetos</a>
-          <select id="select_projetos" class="menu text class" onchange="redirecionar(select_projetos)">
-            <option value="projetos" class="nada"></option>
-            <option value="arrecadacao_alimento">Arrecadação de Alimentos</option>
-            <option value="campanha_agasalho">Campanha de Agasalhos</option>
-            <option value="quebrando_silencio">Quebrando o Silêncio</option>
-            <option value="missao_calebe">Missão Calebe</option>
-          </select>
-        </li>
-        <li>
-          <a href="cadastro.html" class="text">Cadastrar</a>
-        </li>
-        <li>
-          <a href="login.html" class="text">Login</a>
-        </li>
-      </ul>
     </div>
   </div>
-  <!--header fim-->
+
+
 
   <!-- cadastro inicio -->
   <div class="cadastro">
@@ -196,49 +176,7 @@
                     <img class="icon" src="./assets/icon/classes/icon-guia.png">
                     <span>Guia</span>
                   </div>
-                </label>
-                <label class="label-classe">
-                  <input type="checkbox" value="2" id="input_amigo_natureza">
-                  <div class="classe amigo">
-                    <img class="icon" src="./assets/icon/classes/icon-amigo.png">
-                    <span>Amigo da Natureza</span>
-                  </div>
-                </label>
-                <label class="label-classe" id="classe_a">
-                  <input type="checkbox" value="4" id="input_companheiro_excursionismo">
-                  <div class="classe companheiro">
-                    <img class="icon" src="./assets/icon/classes/icon-companheiro.png">
-                    <span>Companheiro de Excursionismo</span>
-                  </div>
-                </label>
-                <label class="label-classe" id="classe_a">
-                  <input type="checkbox" value="6" id="input_pesquisador_campo">
-                  <div class="classe pesquisador">
-                    <img class="icon" src="./assets/icon/classes/icon-pesquisador.png">
-                    <span>Pesquisador de Campo e Bosque</span>
-                  </div>
-                </label>
-                <label class="label-classe" id="classe_a">
-                  <input type="checkbox" value="8" id="input_pioneiro_fronteiras">
-                  <div class="classe pioneiro">
-                    <img class="icon" src="./assets/icon/classes/icon-pioneiro.png">
-                    <span>Pioneiro de Novas Fronteiras</span>
-                  </div>
-                </label>
-                <label class="label-classe" id="classe_a">
-                  <input type="checkbox" value="10" id="input_excursionista_mata">
-                  <div class="classe excursionista">
-                    <img class="icon" src="./assets/icon/classes/icon-excursionista.png">
-                    <span>Excursionista na Mata</span>
-                  </div>
-                </label>
-                <label class="label-classe">
-                  <input type="checkbox" value="12" id="input_guia_exploracao">
-                  <div class="classe guia">
-                    <img class="icon" src="./assets/icon/classes/icon-guia.png">
-                    <span>Guia de Exploração</span>
-                  </div>
-                </label>
+                </label>  
               </div>
             </div>
             <div class="campo-informacoes-clube">
@@ -247,29 +185,25 @@
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Ônix">
                   <div class="campo-unidade onix">
-                    <img src="assets/icon/unidades/onix.png">
-                    <span>Ônix</span>
+                    <span>Leõs</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Ametista">
                   <div class="campo-unidade ametista">
-                    <img src="assets/icon/unidades/ametista.png">
-                    <span>Ametista</span>
+                    <span>Panteras</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Jaspe">
                   <div class="campo-unidade jaspe">
-                    <img src="assets/icon/unidades/jaspe.png">
-                    <span>Jaspe</span>
+                    <span>Guepardos</span>
                   </div>
                 </label>
                 <label class="label-unidade">
                   <input type="radio" name="check_unidade" value="Safira">
                   <div class="campo-unidade safira">
-                    <img src="assets/icon/unidades/safira.png">
-                    <span>Safira</span>
+                    <span>Onças</span>
                   </div>
                 </label>
               </div>

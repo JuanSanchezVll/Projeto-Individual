@@ -1,7 +1,187 @@
+.header {
+    width: 100%;
+    height: 100px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*Deixa a nav fixa*/
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 90%;
+    z-index: 1;
+    height: 120px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.897), rgba(0, 0, 0, 0.568), rgba(0, 0, 0, 0));
+    /* Gradiente corrigido */
+}
+
+.header .container img {
+    width: 18vh;
+    height: 16vh;
+    margin-left: -15px;
+    /* Ajuste fino para mover à esquerda */
+    transform: translateY(5px);
+    /* Opcional: leve descida */
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    list-style: none;
+
+}
+
+.navbar li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+
+}
+
+.header .container .navbar a {
+    font-weight: 500;
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.menu-center {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-right {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha os itens à direita */
+    align-items: center;
+}
+
+#home {
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+#home:hover {
+    font-weight: 800;
+}
+
+#sobre {
+    transition: 0.3s ease;
+}
+
+#sobre:hover {
+    font-weight: 800;
+}
+
+#simulador {
+    transition: 0.3s ease;
+}
+
+#simulador:hover {
+    font-weight: 800;
+}
+
+#login,
+#cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #ef6d11;
+    /* border-radius: 7px; */
+    height: 28px;
+    width: 80px;
+    border: #f36a09 solid 3px;
+    transition: background-color 0.4s ease;
+
+}
+
+#login:hover {
+    background-color: #eeeded;
+    color: #2A1110;
+    font-weight: 600;
+
+}
+
+#cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #f36a09;
+    border-radius: 7px;
+    height: 28px;
+    width: 80px;
+    border: #f36a09 solid 3px;
+    transition: background-color 0.4s ease;
+
+}
+
+#cadastro:hover {
+    background-color: #eeeded;
+    color: #2A1110;
+    font-weight: 600;
+}
+
+
+/*Banner*/
+.banner {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    align-items: center;
+    padding-top: 7%;
+    padding-left: 4%;
+}
+
+.banner h1 {
+    color: #FFFACC;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.banner p {
+    color: rgb(255, 255, 255);
+    width: 90%;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 40px;
+    background-color: #f05825;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+
+
 .cadastro {
     width: 100%;
     height: 87.7vh;
-    background: linear-gradient(to right, #0f0e6c, #99cae8);
+    background: url(../assets/img/Cadastro.jpeg);
     display: flex;
     justify-content: center;
     align-items: center;
