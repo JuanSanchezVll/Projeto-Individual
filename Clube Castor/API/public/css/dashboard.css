@@ -281,13 +281,13 @@
 }
 
 .select-buttons button.active {
-    background-color: #eab000;
+    background-color: #ec1111;
     border-color: #b89400;
 }
 
 .select-buttons button:hover {
-    background-color: #eab000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: #ee0b0b;
+    box-shadow: 0 4px 8px rgba(247, 17, 17, 0.958);
 }
 
 
@@ -412,3 +412,4 @@
 .bloco-infos-e-status .container-buttons {
     width: 350px;
 }
+
