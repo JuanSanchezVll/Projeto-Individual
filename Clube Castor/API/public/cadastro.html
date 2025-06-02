@@ -211,20 +211,20 @@
                 <h3>Cargo</h3>
                 <select id="select_cargo_diretoria" name="select_cargo">
                   <option value="#" selected disabled>Escolha uma opção</option>
-                  <option value="Conselheiro">Conselheiro</option>
-                  <option value="Conselheiro Associado">Conselheiro Associado</option>
-                  <option value="Diretor">Diretor</option>
-                  <option value="Diretor Associado">Diretor Associado</option>
-                  <option value="Secretário">Secretário</option>
-                  <option value="Tesoureiro">Tesoureiro</option>
-                  <option value="Instrutor">Instrutor</option>
+                  <option value="5">Conselheiro</option>
+                  <option value="6">Conselheiro Associado</option>
+                  <option value="1">Diretor</option>
+                  <option value="2">Diretor Associado</option>
+                  <option value="3">Secretário</option>
+                  <option value="4">Tesoureiro</option>
+                  <option value="7">Instrutor</option>
                 </select>
                 <select id="select_cargo_desbravador" name="select_cargo">
                   <option value="#" selected disabled>Escolha uma opção</option>
-                  <option value="Capitão de Unidade">Capitão de Unidade</option>
-                  <option value="Secretário de Unidade">Secretário de Unidade</option>
-                  <option value="Tesoureiro de Unidade">Tesoureiro de Unidade</option>
-                  <option value="Capelão de Unidade">Capelão de Unidade</option>
+                  <option value="8">Capitão de Unidade</option>
+                  <option value="9">Secretário de Unidade</option>
+                  <option value="10">Tesoureiro de Unidade</option>
+                  <option value="11">Capelão de Unidade</option>
                 </select>
               </div>
             </div>
@@ -347,10 +347,11 @@
     }
   }
 
+
   function verificarOpcaoSelecionada(opcao) {
     for (var categoriaAtual = 0; categoriaAtual < categorias.length; categoriaAtual += 1) {
       var caminho = categorias[categoriaAtual].caminho
-      var div = document.getElementById("div_especialidades" + caminho)
+      var div = document.getElementById("div_" + caminho)
       div.style.display = 'none'
 
       if (opcao.value == caminho) {
@@ -500,19 +501,21 @@
       setInterval(sumirMensagem, 4000);
       return false
 
-    } else if (verificarSenhaInvalida(senhaVar)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Senha inválida"
-      setInterval(sumirMensagem, 4000);
-      return false
+    }
+    //  else if (verificarSenhaInvalida(senhaVar)) {
+    //   cardErro.style.display = "block";
+    //   mensagem_erro.innerHTML = "Senha inválida"
+    //   setInterval(sumirMensagem, 4000);
+    //   return false
 
-    } else if (confirmacaoSenhaVar != senhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "Confirmação da senha está diferente da senha"
-      setInterval(sumirMensagem, 4000);
-      return false
+    //  }
+    //  else if (confirmacaoSenhaVar != senhaVar) {
+    //   cardErro.style.display = "block";
+    //   mensagem_erro.innerHTML = "Confirmação da senha está diferente da senha"
+    //   setInterval(sumirMensagem, 4000);
+    //   return false
 
-    } else if (estadoVar.length > 2) {
+    else if (estadoVar.length > 2) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "Estado inválido"
       setInterval(sumirMensagem, 4000);
@@ -577,27 +580,27 @@
 
         if (resposta.ok) {
 
-          listaIdsRecuperada.push(idMembro);
-          localStorage.setItem('listaIds', JSON.stringify(listaIdsRecuperada));
+          //listaIdsRecuperada.push(idMembro);
+          //localStorage.setItem('listaIds', JSON.stringify(listaIdsRecuperada));
 
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, 1000);
+
+          window.location = "login.html";
+
 
           limparFormulario();
-          finalizarAguardar();
+          //finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        //finalizarAguardar();
       });
 
     return false;
@@ -608,10 +611,11 @@
     const numeros = /[0-9]/
     const caracteresEspeciais = /[!@#$%^&*(),.?":{}|<>]/
 
-    if (senha.search(maisculas) == -1 || senha.search(numeros) == -1 || senha.search(caracteresEspeciais) == 1) {
-      return true
-    }
-    return false
+    // if (senha.search(maisculas) == -1 || senha.search(numeros) == -1 || senha.search(caracteresEspeciais) == 1) {
+    //   return true
+    // }
+    // return false
+    return true;
   }
 
   function verificarClassesInvalidas(classes) {

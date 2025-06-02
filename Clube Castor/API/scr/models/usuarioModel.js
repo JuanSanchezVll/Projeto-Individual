@@ -65,17 +65,17 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
         console.log("Executando a instrução SQL: \n" + queryInsertUsuario);
 
-        await database.executar(queryInsertUsuario);
+        database.executar(queryInsertUsuario);
 
  
 
-        var queryInsertEndereco = `INSERT INTO ENDERECO (CEP, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, COMPLEMENTO, ID_USUARIO) VALUES ('${cep}','${rua}','${numero}','${bairro}','${cidade}','${estado}','${complemento}',(select ID from USUARIO order by ID desc limit 1));`
+        var queryInsertEndereco = `INSERT INTO ENDERECO (CEP, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, COMPLEMENTO, ID_USUARIO) VALUES ('${cep}','${rua}','${numero}','${bairro}','${cidade}','${estado}','${complemento}',(select idUsuario from USUARIO order by ID desc limit 1));`
 
  
 
         console.log("Executando a instrução SQL: \n" + queryInsertEndereco);
 
-        await database.executar(queryInsertEndereco);
+        database.executar(queryInsertEndereco);
 
  
 
@@ -101,7 +101,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
         console.log("Executando a instrução SQL: \n" + queryInsertClasse);
 
-        await database.executar(queryInsertClasse);
+        database.executar(queryInsertClasse);
 
  
 
@@ -111,11 +111,10 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
  
 
-        for(especialidade = 0; classe < listaEspecialidades.length; especialidade++ )
-
+        for(especialidade = 0; especialidade < listaEspecialidades.length; especialidade++ )
         {
 
-          if(!(classe == listaEspecialidades.length -1)){
+          if(!(especialidade == listaEspecialidades.length -1)){
 
             queryInsertEspecialidade += `((select idMembro from membro order by idMembro desc limit 1), ${listaEspecialidades[especialidade]}, NOW()),`;
 
@@ -129,7 +128,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
         console.log("Executando a instrução SQL: \n" + queryInsertEspecialidade);
 
-        await database.executar(queryInsertEspecialidade);
+        database.executar(queryInsertEspecialidade);
 
     } catch {
 
