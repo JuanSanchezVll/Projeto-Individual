@@ -9,83 +9,116 @@
 </head>
 
 <body>
-  <div class="quiz-container">
-    <div id="quiz">
-      <div class="question" id="question">Carregando...</div>
-      <div class="answers" id="answers"></div>
-      <button class="next-btn hidden" id="nextButton">Próxima</button>
-      <div class="result" id="result"></div>
+
+  <!-- NAV DA HOME + BOTÃO JUNTESE A NÓS -->
+  <section class="home" id="home">
+    <div class="container-nav">
+      <div class="overlay">
+        <div class="header">
+          <div class="container">
+            <a href="./index-dashboard.html">
+              <img src="assets/img/logoCastor.png" alt="Logo Castor">
+            </a>
+              <div class="navbar">
+
+                <ul class="menu-center">
+                  <li><a id="home" href="./index.html">Home</a></li>
+                  <li><a href="#junte-se">Clube Castor</a></li>
+                  <li><a href="#Castor">Campori</a></li>
+                  <li><a href="#Sobre-mim">Sobre mim</a></li>
+                  <li><a href="galeria.html">Galeria</a></li>
+                  <li><a id="simulador" href="simulador.html">Simulador</a></li>
+
+                </ul>
+                <ul class="menu-right">
+                  <li><a id="login" href="login.html">Login</a></li>
+                  <li><a id="cadastro" href="cadastro.html">Cadastro</a></li>
+                </ul>
+
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <script>
-    const quiz = [
-      { pergunta: "O que significa ser um Desbravador?", opcoes: ["Fazer parte de um clube de esportes", "Ser curioso e disposto a aprender", "Um escoteiro profissional", "Apenas um estudante da Bíblia"], correta: 1 },
-      { pergunta: "Qual é o símbolo mais marcante do uniforme dos Desbravadores?", opcoes: ["Espada", "Lenço amarelo", "Boina preta", "Camisa branca"], correta: 1 },
-      { pergunta: "Qual destes eventos é o maior para os Desbravadores?", opcoes: ["Reunião local", "Trilha semanal", "Campori", "Feira de talentos"], correta: 2 },
-      { pergunta: "Uma das atividades favoritas dos Desbravadores é:", opcoes: ["Assistir filmes", "Explorar a natureza", "Jogar videogame", "Dormir até tarde"], correta: 1 },
-      { pergunta: "O lema do clube é:", opcoes: ["Servir sempre", "Sempre Alerta", "O dever antes do prazer", "Coragem e Fé"], correta: 2 },
-      { pergunta: "Qual é a idade ideal para entrar no clube?", opcoes: ["7 a 10 anos", "10 a 15 anos", "15 a 20 anos", "Somente adultos"], correta: 1 },
-      { pergunta: "Qual é o dia oficial do Desbravador?", opcoes: ["15 de abril", "1º de setembro", "25 de maio", "10 de outubro"], correta: 2 },
-      { pergunta: "Qual material é mais usado em acampamentos?", opcoes: ["Alumínio", "Madeira", "Plástico", "Lona"], correta: 3 },
-      { pergunta: "Qual é o objetivo principal do clube?", opcoes: ["Aventuras sem propósito", "Viajar o mundo", "Servir a Deus e ao próximo", "Estudar em grupo"], correta: 2 },
-      { pergunta: "Que cor é usada no lenço dos Desbravadores?", opcoes: ["Azul", "Preto", "Amarelo", "Verde"], correta: 2 },
-      { pergunta: "Que tipo de especialidade se aprende no clube?", opcoes: ["Matemática", "Culinária", "Missões espaciais", "Negócios"], correta: 1 },
-      { pergunta: "O que é um Campori?", opcoes: ["Curso online", "Congresso", "Acampamento com várias unidades", "Gincana escolar"], correta: 2 },
-      { pergunta: "Qual é o formato do emblema dos Desbravadores?", opcoes: ["Círculo", "Quadrado", "Triângulo", "Estrela"], correta: 2 },
-      { pergunta: "Quem pode participar do clube?", opcoes: ["Apenas Adventistas", "Somente líderes", "Qualquer jovem com vontade de aprender", "Somente meninas"], correta: 2 },
-      { pergunta: "Qual instrumento é usado para marchar no clube?", opcoes: ["Bússola", "Violão", "Bastão de comando", "Tamborim"], correta: 2 }
-    ];
-    let currentQuestion = 0;
-    let score = 0;
-    const questionElement = document.getElementById("question");
-    const answersElement = document.getElementById("answers");
-    const nextButton = document.getElementById("nextButton");
-    const resultElement = document.getElementById("result");
-    function showQuestion() {
-      const q = quiz[currentQuestion];
-      questionElement.textContent = q.pergunta;
-      answersElement.innerHTML = "";
-      resultElement.textContent = "";
-      nextButton.classList.add("hidden");
-      q.opcoes.forEach((opcao, index) => {
-        const btn = document.createElement("button");
-        btn.textContent = opcao;
-        btn.onclick = () => selectAnswer(index);
-        answersElement.appendChild(btn);
-      });
-    }
-    function selectAnswer(index) {
-      const q = quiz[currentQuestion];
-      const buttons = answersElement.querySelectorAll("button");
-      buttons.forEach((btn, i) => {
-        btn.disabled = true;
-        if (i === q.correta) btn.style.backgroundColor = "#28a745";
-        if (i === index && i !== q.correta) btn.style.backgroundColor = "#dc3545";
-      });
-      if (index === q.correta) {
-        score++;
-        resultElement.textContent = "Boa! Você acertou!";
-      } else {
-        resultElement.textContent = "Ops! Resposta errada.";
+
+
+    <div class="quiz-container">
+      <div id="quiz">
+        <div class="question" id="question">Carregando...</div>
+        <div class="answers" id="answers"></div>
+        <button class="next-btn hidden" id="nextButton">Próxima</button>
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+    <script>
+      const quiz = [
+        { pergunta: "O que significa ser um Desbravador?", opcoes: ["Fazer parte de um clube de esportes", "Ser curioso e disposto a aprender", "Um escoteiro profissional", "Apenas um estudante da Bíblia"], correta: 1 },
+        { pergunta: "Qual é o símbolo mais marcante do uniforme dos Desbravadores?", opcoes: ["Espada", "Lenço amarelo", "Boina preta", "Camisa branca"], correta: 1 },
+        { pergunta: "Qual destes eventos é o maior para os Desbravadores?", opcoes: ["Reunião local", "Trilha semanal", "Campori", "Feira de talentos"], correta: 2 },
+        { pergunta: "Uma das atividades favoritas dos Desbravadores é:", opcoes: ["Assistir filmes", "Explorar a natureza", "Jogar videogame", "Dormir até tarde"], correta: 1 },
+        { pergunta: "O lema do clube é:", opcoes: ["Servir sempre", "Sempre Alerta", "O dever antes do prazer", "Coragem e Fé"], correta: 2 },
+        { pergunta: "Qual é a idade ideal para entrar no clube?", opcoes: ["7 a 10 anos", "10 a 15 anos", "15 a 20 anos", "Somente adultos"], correta: 1 },
+        { pergunta: "Qual é o dia oficial do Desbravador?", opcoes: ["15 de abril", "1º de setembro", "25 de maio", "10 de outubro"], correta: 2 },
+        { pergunta: "Qual material é mais usado em acampamentos?", opcoes: ["Alumínio", "Madeira", "Plástico", "Lona"], correta: 3 },
+        { pergunta: "Qual é o objetivo principal do clube?", opcoes: ["Aventuras sem propósito", "Viajar o mundo", "Servir a Deus e ao próximo", "Estudar em grupo"], correta: 2 },
+        { pergunta: "Que cor é usada no lenço dos Desbravadores?", opcoes: ["Azul", "Preto", "Amarelo", "Verde"], correta: 2 },
+        { pergunta: "Que tipo de especialidade se aprende no clube?", opcoes: ["Matemática", "Culinária", "Missões espaciais", "Negócios"], correta: 1 },
+        { pergunta: "O que é um Campori?", opcoes: ["Curso online", "Congresso", "Acampamento com várias unidades", "Gincana escolar"], correta: 2 },
+        { pergunta: "Qual é o formato do emblema dos Desbravadores?", opcoes: ["Círculo", "Quadrado", "Triângulo", "Estrela"], correta: 2 },
+        { pergunta: "Quem pode participar do clube?", opcoes: ["Apenas Adventistas", "Somente líderes", "Qualquer jovem com vontade de aprender", "Somente meninas"], correta: 2 },
+        { pergunta: "Qual instrumento é usado para marchar no clube?", opcoes: ["Bússola", "Violão", "Bastão de comando", "Tamborim"], correta: 2 }
+      ];
+      let currentQuestion = 0;
+      let score = 0;
+      const questionElement = document.getElementById("question");
+      const answersElement = document.getElementById("answers");
+      const nextButton = document.getElementById("nextButton");
+      const resultElement = document.getElementById("result");
+      function showQuestion() {
+        const q = quiz[currentQuestion];
+        questionElement.textContent = q.pergunta;
+        answersElement.innerHTML = "";
+        resultElement.textContent = "";
+        nextButton.classList.add("hidden");
+        q.opcoes.forEach((opcao, index) => {
+          const btn = document.createElement("button");
+          btn.textContent = opcao;
+          btn.onclick = () => selectAnswer(index);
+          answersElement.appendChild(btn);
+        });
       }
-      nextButton.classList.remove("hidden");
-    }
-    nextButton.onclick = () => {
-      currentQuestion++;
-      if (currentQuestion < quiz.length) {
-        showQuestion();
-      } else {
-        showFinal();
+      function selectAnswer(index) {
+        const q = quiz[currentQuestion];
+        const buttons = answersElement.querySelectorAll("button");
+        buttons.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.correta) btn.style.backgroundColor = "#28a745";
+          if (i === index && i !== q.correta) btn.style.backgroundColor = "#dc3545";
+        });
+        if (index === q.correta) {
+          score++;
+          resultElement.textContent = "Boa! Você acertou!";
+        } else {
+          resultElement.textContent = "Ops! Resposta errada.";
+        }
+        nextButton.classList.remove("hidden");
       }
-    };
-    function showFinal() {
-      questionElement.textContent = "Quiz Finalizado!";
-      answersElement.innerHTML = "Você acertou " + score + " de " + quiz.length + " perguntas.";
-      resultElement.textContent = "Parabéns por participar!";
-      nextButton.classList.add("hidden");
-    }
-    showQuestion();
-  </script>
+      nextButton.onclick = () => {
+        currentQuestion++;
+        if (currentQuestion < quiz.length) {
+          showQuestion();
+        } else {
+          showFinal();
+        }
+      };
+      function showFinal() {
+        questionElement.textContent = "Quiz Finalizado!";
+        answersElement.innerHTML = "Você acertou " + score + " de " + quiz.length + " perguntas.";
+        resultElement.textContent = "Parabéns por participar!";
+        nextButton.classList.add("hidden");
+      }
+      showQuestion();
+    </script>
 </body>
 
 </html>
