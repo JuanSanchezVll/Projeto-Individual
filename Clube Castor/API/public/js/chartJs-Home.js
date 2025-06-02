@@ -5,6 +5,8 @@ var data = [6, 87, 7];
 var ipa = btn_ipa;
 var pilsen = btn_pilsen;
 
+var model_Grafic = buscarInfoGrafic();
+
 function verIPA() {
     chartTemp.data.datasets[0].data = [6, 87, 7];
     chartTemp.data.labels = ['Abaixo de 16°C', '18°C a 22°C', 'Acima de 24°C']
@@ -76,9 +78,13 @@ var chartTemp = new Chart(dataGraphicTempFaixaPercentual, {
 new Chart(dataGraphicStatusFermentar, {
     type: 'doughnut',
     data: {
-        labels: ['Ativo', 'Inativo', 'Manutenção'],
+        labels: [model_Grafic.forEach(element => {
+            element.Nome
+        })],
         datasets: [{
-            data: [30, 8, 2],
+            data: [model_Grafic.forEach(x => {
+                x.quantidade
+            })],
             backgroundColor: [
                 '#66BB6A',
                 '#EF5350',
