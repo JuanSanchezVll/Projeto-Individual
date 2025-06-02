@@ -22,8 +22,10 @@
   <div class="header">
     <div class="container">
       <div class="logo" onclick="redirecionarHome()">
-        <img src="assets/icon/logo.png">
-        <h2>Topázio</h2>
+        <a href="index.html">
+          <img src="assets/logoCastor.png" alt="Logo Castor">
+        </a>
+
       </div>
       <ul class="nav-bar">
         <li id="li_select" class="li-select">
@@ -302,7 +304,7 @@
                 <option value="0-atividades-recreativas/">Atividades Recreativas</option>
                 <option value="1-artes-habilidades-manuais/">Artes Habilidades Manuais</option>
               </select>
-              
+
             </div>
           </div>
           <div class="buttons">
@@ -465,13 +467,13 @@
   }
 
   function inicializarArray() {
-  if (!localStorage.getItem('listaIds')) {
-    const listaIds = [0]
-    localStorage.setItem('listaIds', JSON.stringify(listaIds));
+    if (!localStorage.getItem('listaIds')) {
+      const listaIds = [0]
+      localStorage.setItem('listaIds', JSON.stringify(listaIds));
+    }
   }
-}
 
-inicializarArray();
+  inicializarArray();
 
   function cadastrar() {
     // aguardar();
