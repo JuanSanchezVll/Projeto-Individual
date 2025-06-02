@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/assets/main.css">
     <link rel="stylesheet" href="./css/simulador.css">
-    <title>Simulador</title>
+    <title>Simulador - Castor</title>
 </head>
 
 <body>
+
+    <!-- SEÇÃO NAV -->
     <div class="header">
         <div class="container">
             <a href="./index.html">
-                <img src="assets/logoCastor.png" alt="Logo Castor">
+                <img src="assets/img/logoCastor.png" alt="Logo Castor">
             </a>
             <div class="navbar">
                 <ul class="menu-center">
-                    <li><a id="home" href="./index.html">Home</a></li>
-                    <li><a href="./index.html">Sobre Nós</a></li>
+                    <li><a id="home" href="index.html">Home</a></li>
+                    <li><a href="index.html">Sobre Nós</a></li>
                     <li><a href="simulador.html">Simulador</a></li>
                 </ul>
                 <ul class="menu-right">
@@ -29,65 +31,59 @@
         </div>
     </div>
 
+    <!-- SEÇÃO SIMULADOR -->
     <div class="container-simulador">
         <div class="container-logo">
-            <img src="assets/logoCastor.png" alt="Castor Logo">
+            <img src="assets/img/logoCastor.png" alt="Castor Logo">
         </div>
-
         <div class="form">
-
-            <h3>Ajude um Desbravador ir no Campori</h3> <br>
-
+            <h3>Ajude um Desbravador a ir no Campori</h3> <br>
             <div>
-                <h4> <img src="./assets/liters.svg" class="icon" alt="">Insira seu nome</h4>
-                <input id="litros_mes" type="number">
+                <h4>Insira seu nome</h4>
+                <input id="input_nome" type="text">
             </div>
-
             <div>
-                <h4> <img src="./assets/percentage.svg" class="icon" alt="">Valor a ser enviado
-                </h4>
-                <input id="percentual_perdas" type="number">
+                <h4> Valor a ser enviado</h4>
+                <input id="input_valor_a_enviar" type="number">
             </div>
-
             <div>
-                <h4> <img src="./assets/money.svg" class="icon" alt="">Mensagem de Apoio</h4>
-                <input id="custo_litro" type="number">
+                <h4>Mensagem de Apoio</h4>
+                <input id="input_mensagem" type="text">
             </div>
 
             <button onclick="calcular()">
-                <img src="./assets/calculator1.svg" class="icon" alt="">
+                <img src="./assets/img/calculator1.svg" class="icon" alt="">
                 Simular Calculo
             </button>
-            <div id="msg"></div>
-
+            <div id="div_mensagem"></div>
         </div>
-
     </div>
 
+    <!-- SEÇÃO FOOTER -->
     <footer class="footer">
-
         <div class="container-footer-top">
-
             <div class="redes-sociais">
                 <h3>REDES SOCIAIS</h3> <br>
-                <span><img src="./assets/instagram_icon.png" alt="Instagram" height="25px"> @Clube_Castor</span>
+                <span><img src="./assets/img/instagram_icon.png" alt="Instagram" height="25px"> @Clube_Castor</span>
                 <br><br>
-                <span><img src="./assets/facebook_icon.png" alt="Facebook" height="25px"> @Clube_Castor</span>
+                <span><img src="./assets/img/facebook_icon.png" alt="Facebook" height="25px"> @Clube_Castor</span>
                 <br><br>
-                <span><img src="./assets/youtube_icon.png" alt="Youtube" height="20px"> Clube_Castor_yt</span> <br><br>
+                <span><img src="./assets/img/youtube_icon.png" alt="Youtube" height="20px"> Clube_Castor_yt</span>
+                <br><br>
             </div>
 
             <div class="contato">
                 <h3>CONTATO </h3> <br>
-                <span><img src="./assets/telefone_icon.png" alt="Telefone" height="30px">+55 11 965986160</span>
+                <span><img src="./assets/img/telefone_icon.png" alt="Telefone" height="30px">+55 11 965986160</span>
                 <br><br>
-                <span><img src="./assets/email_icon.png" alt="Email" height="30px">ClubeCastor@gmail.com</span> <br><br>
+                <span><img src="./assets/img/email_icon.png" alt="Email" height="30px">ClubeCastor@gmail.com</span>
+                <br><br>
             </div>
 
             <div class="campo">
-                <h3>EMPRESA</h3> <br>
-                <a href="./index.html"></a><span>Home</span></a> <br><br>
-                <span>Simulador</span> <br><br>
+                <h3>Castor</h3> <br>
+                <a href="index.html"><span>Home</span></a> <br><br></a>
+                <a href="simulador.html"><span>Simulador</span> <br><br> </a>
             </div>
 
             <div class="campo">
@@ -101,37 +97,35 @@
             </div>
         </div>
         <div class="container-footer-bottom">
-            <img src="assets/logoCastor.png" alt="Logo_MoniBeer" height="90px">
+            <img src="assets/img/logoCastor.png" alt="Logo Castor" height="90px">
             <p>Copyright © 2025 | ClubeCastor</p>
-            <span> <img src="./assets/brasil_logo.png" alt="Logo Brasil" height="22px">Brasil Português</span>
+            <span> <img src="./assets/img/brasil_logo.png" alt="Logo Brasil" height="22px">Brasil Português</span>
         </div>
         </div>
+
     </footer>
-</body>
-
-</html>
 
 </body>
-
 </html>
+
 <script>
     function calcular() {
 
-        var totalLitros = Number(litros_mes.value);
-        var perdas = Number(percentual_perdas.value);
-        var valorLitro = Number(custo_litro.value);
+        var totalLitros = Number(input_nome.value);
+        var perdas = Number(input_valor_a_enviar.value);
+        var valorLitro = Number(input_mensagem.value);
         var mensagem = "";
 
         var perdaLitros = (perdas / 100) * totalLitros; // quantidade de litros perdidos
         var prejuizo = perdaLitros * valorLitro; // valor perdido
 
         if (totalLitros == "" || perdas == "" || valorLitro == "") {
-            mensagem = `<p class="msg-erro">Por favor, preencha todos os campos.</p>`;
+            mensagem = `<p class="div_mensagem_erro">Por favor, preencha todos os campos.</p>`;
 
         } else if (perdas >= 0 && perdas <= 100 && valorLitro > 0 && totalLitros > 0) {
 
             mensagem = `<h3>
-                <img src="./assets/reducao.svg" class="icon" alt="">
+                <img src="./assets/img/reducao.svg" class="icon" alt="">
                 Meta de redução entre 10% e 25%
                 </h3>`
 
@@ -164,9 +158,9 @@
             (economia de ${economiaLitro.toFixed(2)}L), reduzindo o prejuízo para <b class="valor-positivo">
                 R$${(prejuizo - economiaTotal).toFixed(2)}</b> (economia de R$${economiaTotal.toFixed(2)}). </p>`;
         } else {
-            mensagem = `<p class="msg-erro">Por favor, insira apenas valores válidos.</p>`;
+            mensagem = `<p class="div_mensagem-erro">Por favor, insira apenas valores válidos.</p>`;
         }
 
-        msg.innerHTML = mensagem;
+        div_mensagem.innerHTML = mensagem;
     }
 </script>

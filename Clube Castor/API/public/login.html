@@ -11,11 +11,13 @@
 </head>
 
 <body>
+
+  <!-- SEÇÃO NAV  -->
   <div class="login">
     <div class="header">
       <div class="container">
         <a href="./index.html">
-          <img src="assets/logoCastor.png" alt="Logo Castor">
+          <img src="assets/img/logoCastor.png" alt="Logo Castor">
         </a>
         <div class="navbar">
           <ul class="menu-center">
@@ -30,20 +32,19 @@
         </div>
       </div>
     </div>
-    <!-- Container com os dados informados -->
 
+    <!-- SEÇÃO LOGIN PRINCIPAL -->
     <div class="container-login">
       <div class="card">
-        <!-- estou criando aqui o balão de cadastro -->
         <h2>Login</h2>
-        <br /><br />
+        <br><br>
         <div class="card-campo">
           <form id="formLogin">
             <div class="campo"></div>
             <div class="campo">
               <span>Email</span>
-              <br /><br />
-              <input type="text" id="input_email" /> <br /><br /><br />
+              <br><br>
+              <input type="text" id="input_email"/> <br><br><br>
             </div>
             <div class="campo"></div>
             <div class="campo"></div>
@@ -62,13 +63,14 @@
       </div>
     </div>
   </div>
-  <div id="div_mensagem"></div>
-</body>
 
+  <div id="div_mensagem"></div>
+
+</body>
 </html>
 
-<!-- JAVA SCRIPT -->
 <script>
+
   function analisar(event) {
     event.preventDefault(); // Impede o recarregamento da página
 
@@ -80,11 +82,11 @@
     if (email == "" || senha == "") {
       alert(`Preencha todos os campos obrigatórios`);
     } else if (!email.includes("@")) {
-      alert(`Preencha com um email válido válida`);
+      alert(`Preencha com um email válido`);
     } else if (email == emaillogin && senha == emailsenha) {
-      window.location.href = "index-dashboard.html"; // Faz a navegação automática
+      window.location.href = "index-dashboard.html"; // Faz a navegação automática para logar na index dadashboard
     } else {
-      div_mensagemerro.innerHTML = `<span style="color: red;">Matrícula ou Senha incorretos!</span>`;
+      div_mensagemerro.innerHTML = `<span style="color: red;">Email ou Senha incorretos!</span>`;
     }
   }
 </script>

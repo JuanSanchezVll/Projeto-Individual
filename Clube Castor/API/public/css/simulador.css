@@ -5,12 +5,12 @@
 }
 
 body {
-    background: url(../assets/Login.jpeg);
+    background: url(../assets/img/Login.jpeg);
     width: auto;
     height: auto;
     
     margin: 0;
-}
+}   
 
 .container-simulador {
     background-color: #000000;
