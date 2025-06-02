@@ -61,9 +61,9 @@ function autenticar(req, res) {
                                                                                                 sequencia: JSON.stringify(resultadoSequencia)
                                                                                             })
                                                                                         })
-                                                                                })  
+                                                                                })
                                                                         })
-                                                                    
+
                                                                 })
                                                         })
                                                 })

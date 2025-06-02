@@ -176,32 +176,32 @@
                     <img class="icon" src="./assets/icon/classes/icon-guia.png">
                     <span>Guia</span>
                   </div>
-                </label>  
+                </label>
               </div>
             </div>
             <div class="campo-informacoes-clube">
               <h3>Unidade</h3>
               <div class="unidades">
                 <label class="label-unidade">
-                  <input type="radio" name="check_unidade" value="Ônix">
+                  <input type="radio" name="check_unidade" value="1">
                   <div class="campo-unidade onix">
                     <span>Leõs</span>
                   </div>
                 </label>
                 <label class="label-unidade">
-                  <input type="radio" name="check_unidade" value="Ametista">
+                  <input type="radio" name="check_unidade" value="2">
                   <div class="campo-unidade ametista">
                     <span>Panteras</span>
                   </div>
                 </label>
                 <label class="label-unidade">
-                  <input type="radio" name="check_unidade" value="Jaspe">
+                  <input type="radio" name="check_unidade" value="3">
                   <div class="campo-unidade jaspe">
                     <span>Guepardos</span>
                   </div>
                 </label>
                 <label class="label-unidade">
-                  <input type="radio" name="check_unidade" value="Safira">
+                  <input type="radio" name="check_unidade" value="4">
                   <div class="campo-unidade safira">
                     <span>Onças</span>
                   </div>
@@ -350,7 +350,7 @@
   function verificarOpcaoSelecionada(opcao) {
     for (var categoriaAtual = 0; categoriaAtual < categorias.length; categoriaAtual += 1) {
       var caminho = categorias[categoriaAtual].caminho
-      var div = document.getElementById("div_" + caminho)
+      var div = document.getElementById("div_especialidades" + caminho)
       div.style.display = 'none'
 
       if (opcao.value == caminho) {
@@ -362,7 +362,7 @@
 
   var listaClassesSelecionadas = []
   function inserirClassesSelecionadasLista() {
-    const listaIdInputClasse = [input_amigo, input_amigo_natureza, input_companheiro, input_companheiro_excursionismo, input_pesquisador, input_pesquisador_campo, input_pioneiro, input_pioneiro_fronteiras, input_excursionista, input_excursionista_mata, input_guia, input_guia_exploracao]
+    const listaIdInputClasse = [input_amigo, input_companheiro, input_pesquisador, input_pioneiro, input_excursionista, input_guia]
     for (var posicaoAtual = 0; posicaoAtual < listaIdInputClasse.length; posicaoAtual += 1) {
 
       if (listaIdInputClasse[posicaoAtual].checked) {
@@ -412,14 +412,14 @@
     // Agora vá para o método fetch logo abaixo
     let listaIdsRecuperada = JSON.parse(localStorage.getItem('listaIds'));
     // variaveis da tabela membro
-    var idMembro = listaIdsRecuperada[listaIdsRecuperada.length - 1] + 1
+    var idUsuario = listaIdsRecuperada[listaIdsRecuperada.length - 1] + 1
     var nomeVar = nome_input.value;
     var dtNascVar = dtNasc_input.value;
     var telefoneVar = telefone_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    // console.log('Nome: ' + nomeVar, 'Data Nasc.: ' + dtNascVar, 'Telefone: ' + telefoneVar, 'Email: ' + emailVar, 'Senha:' + senhaVar)
+    console.log('Nome: ' + nomeVar, 'Data Nasc.: ' + dtNascVar, 'Telefone: ' + telefoneVar, 'Email: ' + emailVar, 'Senha:' + senhaVar)
 
     // variaveis da tabela endereço
     var cepVar = cep_input.value;
@@ -429,7 +429,7 @@
     var bairroVar = bairro_input.value;
     var cidadeVar = cidade_input.value;
     var estadoVar = estado_input.value;
-    // console.log('CEP: ' + cepVar, 'Rua: ' + ruaVar, 'Numero: ' + numeroVar, 'Complemento: ' + complementoVar, 'Bairro: ' + bairroVar, 'Cidade: ' + cidadeVar, 'Estado: ' + estadoVar)
+    console.log('CEP: ' + cepVar, 'Rua: ' + ruaVar, 'Numero: ' + numeroVar, 'Complemento: ' + complementoVar, 'Bairro: ' + bairroVar, 'Cidade: ' + cidadeVar, 'Estado: ' + estadoVar)
 
     listaClassesSelecionadas = []
     // inserção de dados na lista de classes selecionadas
@@ -457,6 +457,7 @@
     listaEspecialidadesSelecionadas = []
     //inserção de dados na lista de especialidades selecionadas
     inserirEspecialidadesSelecionadasLista()
+
 
     // Verificando se há algum campo em branco
     if (
@@ -541,6 +542,8 @@
       return false
     }
 
+    // FETCHH
+
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -550,7 +553,7 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        idMembroServer: idMembro,
+        idUsuarioServer: idUsuario,
         nomeServer: nomeVar,
         dtNascServer: dtNascVar,
         telefoneServer: telefoneVar,
