@@ -3,11 +3,25 @@
     height: 100px;
 }
 
+#login,
+#cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #f41111;
+    border-radius: 7px;
+    height: 28px;
+    width: 80px;
+    border: #fc1e1e solid 3px;
+    transition: background-color 0.4s ease;
+}
+
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*Deixa a nav fixa*/
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -17,16 +31,13 @@
     padding-left: 5%;
     padding-right: 5%;
     background: linear-gradient(rgba(0, 0, 0, 0.897), rgba(0, 0, 0, 0.568), rgba(0, 0, 0, 0));
-    /* Gradiente corrigido */
 }
 
 .header .container img {
     width: 18vh;
     height: 16vh;
     margin-left: -15px;
-    /* Ajuste fino para mover à esquerda */
     transform: translateY(5px);
-    /* Opcional: leve descida */
 
 }
 

@@ -26,7 +26,7 @@
         border-radius: 7px;
         height: 28px;
         width: 80px;
-        border: #f79400 solid 3px;
+        border: #f71d00 solid 3px;
     }
 
     .footer a {
@@ -48,7 +48,7 @@
    }
 
     .card {
-        background-color: rgba(42, 17, 16, 0.95);
+        background-color: rgba(0, 0, 0, 0.95);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -91,7 +91,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #f7f4d9;
+        color: #ff0000;
         font-weight: 600;
         font-size: 40px;
         line-height: 2.5;
@@ -111,7 +111,7 @@
     }
 
     button {
-        background-color: #ef6e12;
+        background-color: #ef1212;
         width: 135px;
         height: 36px;
         border: none;
