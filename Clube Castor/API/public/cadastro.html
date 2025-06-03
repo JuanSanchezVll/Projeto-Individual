@@ -209,6 +209,7 @@
               </div>
               <div class="cargos">
                 <h3>Cargo</h3>
+                <select id="cargoAspira"></select>
                 <select id="select_cargo_diretoria" name="select_cargo">
                   <option value="#" selected disabled>Escolha uma opção</option>
                   <option value="5">Conselheiro</option>
@@ -649,6 +650,22 @@
     }
     return false
   }
+
+  //Array Cargo
+
+  var listaCargos = fetch()
+
+  const select = document.getElementById("cargoAspira");
+
+  // Limpa o select (caso já tenha opções) select.innerHTML = "";
+
+  // Adiciona as opções dinamicamente
+  listaCargos.forEach(cargo => {
+    const option = document.createElement("option"); option.value = cargo.toLowerCase();
+    option.textContent = cargo;
+    select.appendChild(option);
+  });
+
 
   function sumirMensagem() {
     cardErro.style.display = "none";

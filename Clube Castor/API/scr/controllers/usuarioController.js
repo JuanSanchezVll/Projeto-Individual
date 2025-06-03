@@ -139,7 +139,56 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarCargos() {
+    usuarioModel.buscarCargos()
+        .then(res => {
+            return res;
+        }).catch(erro => {
+            console.log(erro);
+            console.log("houve um erro de cadastro!");
+            return erro;
+        });
+}
+
+
+function buscarUnidades() {
+    usuarioModel.buscarUnidades()
+        .then(res => {
+            return res;
+        }).catch(erro => {
+            console.log(erro);
+            console.log("houve um erro de cadastro!");
+            return erro;
+        });
+}
+
+function buscarEspecialidades() {
+    usuarioModel.buscarEspecialidades()
+        .then(res => {
+            return res;
+        }).catch(erro => {
+            console.log(erro);
+            console.log("houve um erro de cadastro!");
+            return erro;
+        });
+}
+
+function buscarClasses() {
+    usuarioModel.buscarClasses()
+        .then(res => {
+            return res;
+        }).catch(erro => {
+            console.log(erro);
+            console.log("houve um erro de cadastro!");
+            return erro;
+        });
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    buscarCargos,
+    cadastrar,
+    buscarUnidades,
+    buscarEspecialidades,
+    buscarClasses
 }

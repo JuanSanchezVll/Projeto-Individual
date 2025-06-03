@@ -1,5 +1,5 @@
 const { json } = require("express");
-var dashQuiz = require("../models/dashQuiz");
+var dashQuiz = require("../models/dashInicial");
 
 
 function buscarLeads(req, res) {
@@ -10,16 +10,16 @@ function buscarLeads(req, res) {
   });
 
   function buscarInfoGrafic(req, res) {
-  var cnpj = req.query.cnpj;
+    var cnpj = req.query.cnpj;
 
-  dashQuiz.buscarInfoGrafic(cnpj).then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
+    dashQuiz.buscarInfoGrafic(cnpj).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
 
-module.exports = {
-  buscarLeads,
-  buscarInfoGrafic
-};
+  module.exports = {
+    buscarLeads,
+    buscarInfoGrafic
+  };
 
 }
