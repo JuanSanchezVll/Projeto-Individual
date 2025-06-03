@@ -5,21 +5,29 @@ var dashQuiz = require("../models/dashInicial");
 function buscarLeads(req, res) {
   var idUser = req.query.idUsuario;
 
-  dashQuiz.buscarLeads(idUser).then((resultado) => {
+  dashQuiz.buscarLeads(1).then((resultado) => {
     res.status(200).json(resultado);
+  }).catch(error => {
+    res.status(404).json(error.sqlMessage);
   });
+}
 
   function buscarInfoGrafic(req, res) {
-    var cnpj = req.query.cnpj;
+    dashQuiz.buscarInfoGrafic().then((resultado) => {
+      res.status(200).json(resultado);
+    }).catch(error => {
+      res.status(500).json(error.sqlMessage);
+    });
+  }
 
-    dashQuiz.buscarInfoGrafic(cnpj).then((resultado) => {
+    function buscarHistoricoLogin(req, res) {
+    dashQuiz.buscarHistoricoLogin().then((resultado) => {
       res.status(200).json(resultado);
     });
   }
 
   module.exports = {
     buscarLeads,
-    buscarInfoGrafic
+    buscarInfoGrafic,
+    buscarHistoricoLogin
   };
-
-}

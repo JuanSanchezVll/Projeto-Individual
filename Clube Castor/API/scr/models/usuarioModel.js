@@ -7,13 +7,9 @@ function autenticar(email, senha) {
 
 
 
-  var query = `SELECT ID as IdUsuario, Nome, Email, Telefone, Dt_Nascimento as DataNascimento, Senha, ID_CARGO as IdCargo,
-
-                        ID_UNIDADE as IdUnidade
-
-                FROM USUARIO
-
-                WHERE Email = ${email} AND Senha = ${senha}`;
+  var query = `SELECT IdUsuario, Nome, Email, Telefone, Dt_Nascimento as DataNascimento, Senha, IdCargo, IdUnidades
+               FROM USUARIO
+               WHERE Email = '${email}' AND Senha = '${senha}'`;
 
 
 
@@ -23,9 +19,9 @@ function autenticar(email, senha) {
 
 
 
-  if (result != null) {
+  if ( result != null && result.length > 0) {
 
-    var queryHistorico = `INSERT INTO HISTORICO_LOGIN VALUES ('${email}, NOW()')`;
+    var queryHistorico = `INSERT INTO HISTORICO_LOGIN (LOGIN, DT_LOGIN) VALUES ('${email}', NOW())`;
 
     database.executar(queryHistorico);
 
@@ -69,7 +65,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
 
 
-    var queryInsertEndereco = `INSERT INTO ENDERECO (CEP, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, COMPLEMENTO, ID_USUARIO) VALUES ('${cep}','${rua}','${numero}','${bairro}','${cidade}','${estado}','${complemento}',(select idUsuario from USUARIO order by ID desc limit 1));`
+    var queryInsertEndereco = `INSERT INTO ENDERECO (CEP, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, COMPLEMENTO, ID_USUARIO) VALUES ('${cep}','${rua}','${numero}','${bairro}','${cidade}','${estado}','${complemento}',(select idUsuario from USUARIO order by idUsuario desc limit 1));`
 
 
 
@@ -79,7 +75,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
 
 
-    var queryInsertClasse = `INSERT INTO USUARIO_CLASSE (ID_CLASSE, ID_USUARIO) VALUES`
+    var queryInsertClasse = `INSERT INTO USUARIO_CLASSE (ID_CLASSE, ID_USUARIO, DT_INCLUSAO) VALUES`
 
 
 
@@ -87,11 +83,11 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
       if (!(classe == listaClasses.length - 1)) {
 
-        queryInsertClasse += `((select idMembro from membro order by idMembro desc limit 1), ${listaClasses[classe]}, NOW()),`;
+        queryInsertClasse += `(${listaClasses[classe++]}, (select idUsuario from USUARIO order by idUsuario desc limit 1), NOW()),`;
 
       }
 
-      queryInsertClasse += `((select idMembro from membro order by idMembro desc limit 1), ${listaClasses[classe]}, NOW());`;
+      queryInsertClasse += `(${listaClasses[classe++]}, (select idUsuario from USUARIO order by idUsuario desc limit 1), NOW());`;
 
     }
 
@@ -105,7 +101,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
 
 
-    var queryInsertEspecialidade = `INSERT INTO USUARIO_ESPECIALIDADE (ID_ESPECIALIDADE, ID_USUARIO) VALUES`
+    var queryInsertEspecialidade = `INSERT INTO USUARIO_ESPECIALIDADE (ID_ESPECIALIDADE, ID_USUARIO, DT_INCLUSAO) VALUES`
 
 
 
@@ -113,11 +109,11 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
       if (!(especialidade == listaEspecialidades.length - 1)) {
 
-        queryInsertEspecialidade += `((select idMembro from membro order by idMembro desc limit 1), ${listaEspecialidades[especialidade]}, NOW()),`;
+        queryInsertEspecialidade += `(${listaEspecialidades[especialidade++]}, (select idUsuario from USUARIO order by idUsuario desc limit 1), NOW()),`;
 
       }
 
-      queryInsertEspecialidade += `((select idMembro from membro order by idMembro desc limit 1), ${listaEspecialidades[especialidade]}, NOW());`;
+      queryInsertEspecialidade += `(${listaEspecialidades[especialidade++]},(select idUsuario from USUARIO order by idUsuario desc limit 1), NOW());`;
 
     }
 
@@ -136,23 +132,24 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 }
 
 function buscarCargos() {
-  var query = `SELECT ID, NOME, AFAZERES FROM CARGOS`;
+  debugger;
+  var query = `SELECT IDCARGO as Id, NOME, AFAZERES FROM CARGO`;
   return database.executar(query);
 }
 
 
 function buscarUnidades() {
-  var query = `SELECT ID, NOME_UNIDADE, QTD_MEMBROS, GENERO FROM UNIDADES`;
+  var query = `SELECT idUnidades as Id, NOME_UNIDADE as Nome, QTD_MEMBROS, GENERO FROM UNIDADES`;
   return database.executar(query);
 }
 
 function buscarEspecialidades() {
-  var query = `SELECT ID, NOME, TIPO FROM ESPECIALIDADES`;
+  var query = `SELECT IDespecialidades as Id, NOME, TIPO FROM ESPECIALIDADES`;
   return database.executar(query);
 }
 
 function buscarClasses() {
-  var query = `SELECT ID, NOME_CLASSE FROM CLASSES`;
+  var query = `SELECT IDClasses as Id, NOME_CLASSE FROM CLASSES`;
   return database.executar(query);
 }
 

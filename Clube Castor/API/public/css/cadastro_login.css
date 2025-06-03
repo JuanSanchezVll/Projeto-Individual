@@ -3,19 +3,6 @@
     height: 100px;
 }
 
-#cadastro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000000;
-    background-color: #ffffff;
-    border-radius: 7px;
-    height: 28px;
-    width: 80px;
-    border: #f71d00 solid 3px;
-}
-
-
 #login,
 #cadastro {
     display: flex;
@@ -232,7 +219,7 @@ button {
 
 .card-cadastro h2 {
     font-size: 1.6rem;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 16, 16);
     padding: 0;
     margin: 2%;
 }
@@ -308,7 +295,7 @@ button {
 }
 
 .formulario button:hover {
-    background: #ff1212;
+    background: #ff0d0d;
 }
 
 .formulario .buttons {

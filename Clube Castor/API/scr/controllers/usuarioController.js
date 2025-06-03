@@ -20,58 +20,13 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
-                        const membro = resultadoAutenticar
-
-                        usuarioModel.buscarEndereco(membro[0].idMembro)
-                            .then((resultadoEndereco) => {
-                                if (resultadoEndereco.length == 1) {
-
-                                    usuarioModel.buscarClasses(membro[0].idMembro)
-                                        .then((resultadoClasses) => {
-
-                                            usuarioModel.buscarEspecialidades(membro[0].idMembro)
-                                                .then((resultadoEspecialidades) => {
-
-                                                    usuarioModel.buscarCargo(membro[0].idMembro)
-                                                        .then((resultadoCargo) => {
-
-                                                            usuarioModel.buscarUnidade(membro[0].idMembro)
-                                                                .then((resultadoUnidade) => {
-                                                                    usuarioModel.buscarQtdEspecialidades(membro[0].idMembro)
-                                                                        .then((resultadoQtdEspecialidades) => {
-                                                                            usuarioModel.buscarIntervalo(membro[0].idMembro)
-                                                                                .then((resultadoIntervalo) => {
-                                                                                    usuarioModel.buscarSequencia(membro[0].idMembro)
-                                                                                        .then((resultadoSequencia) => {
-
-                                                                                            res.json({
-                                                                                                id: membro[0].idMembro,
-                                                                                                nome: membro[0].nome,
-                                                                                                dtNasc: membro[0].dtNasc,
-                                                                                                telefone: membro[0].telefone,
-                                                                                                email: membro[0].email,
-                                                                                                senha: membro[0].senha,
-                                                                                                endereco: resultadoEndereco[0].endereco,
-                                                                                                classes: JSON.stringify(resultadoClasses),
-                                                                                                especialidades: JSON.stringify(resultadoEspecialidades),
-                                                                                                cargos: JSON.stringify(resultadoCargo),
-                                                                                                unidade: JSON.stringify(resultadoUnidade),
-                                                                                                qtdEspecialidades: JSON.stringify(resultadoQtdEspecialidades),
-                                                                                                intervalo: JSON.stringify(resultadoIntervalo),
-                                                                                                sequencia: JSON.stringify(resultadoSequencia)
-                                                                                            })
-                                                                                        })
-                                                                                })
-                                                                        })
-
-                                                                })
-                                                        })
-                                                })
-                                        })
-                                } else {
-                                    res.status(204).json({ endereco: [] });
-                                }
-                            })
+                        res.json({
+                            id: resultadoAutenticar[0].id,
+                                        email: resultadoAutenticar[0].email,
+                                        nome: resultadoAutenticar[0].nome,
+                                        senha: resultadoAutenticar[0].senha
+                        });
+                                
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -141,12 +96,11 @@ function cadastrar(req, res) {
 
 function buscarCargos() {
     usuarioModel.buscarCargos()
-        .then(res => {
+        .then(res => {  
             return res;
         }).catch(erro => {
             console.log(erro);
-            console.log("houve um erro de cadastro!");
-            return erro;
+            console.log("houve um erro de busca");
         });
 }
 
@@ -157,7 +111,7 @@ function buscarUnidades() {
             return res;
         }).catch(erro => {
             console.log(erro);
-            console.log("houve um erro de cadastro!");
+            console.log("houve um erro de busca!");
             return erro;
         });
 }

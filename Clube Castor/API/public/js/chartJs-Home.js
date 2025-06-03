@@ -1,47 +1,13 @@
 const dataGraphicTempFaixaPercentual = document.getElementById('graphic-tempMediaIPA');
-const dataGraphicStatusFermentar = document.getElementById('graphic-statusFermenter')
+const dataGraphicStatusFermentar = document.getElementById('graphic-statusFermenter');
+
+document.addEventListener('DOMContentLoaded', function() {
+    Load();
+  });
 
 var data = [6, 87, 7];
 var ipa = btn_ipa;
 var pilsen = btn_pilsen;
-
-var model_Grafic;
-var usuario;
-
-function Load() {
-
-    fetch("/dashInicial/bucarLeads", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: 
-
-    }).then(res => {
-            usuario = res;
-        }).catch(error => {
-            console.log(error);
-        });
-
-
-    fetch("/dashInicial/buscarInfoGrafic", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-
-    }).then(res => {
-        model_Grafic = res;
-    }).catch(error => {
-        console.log(error);
-    });
-
-
-    document.getElementById("cargo_user").innerHTML += `<p class="data-kpi">${usuario.cargo}</p>`;
-    document.getElementById("unidade_user").innerHTML += `<p class="data-kpi">${usuario.unidade}</p>`;
-    document.getElementById("classe_user").innerHTML += `<p class="data-kpi">${}</p>`;
-    document.getElementById("especialidade_user").innerHTML += `<p class="data-kpi">${}</p>`;
-}
 
 function verIPA() {
     chartTemp.data.datasets[0].data = [6, 87, 7];
@@ -114,13 +80,9 @@ var chartTemp = new Chart(dataGraphicTempFaixaPercentual, {
 new Chart(dataGraphicStatusFermentar, {
     type: 'doughnut',
     data: {
-        labels: [model_Grafic.forEach(x => {
-            x.Nome
-        })],
+        labels: ["ruan", "alicate"],
         datasets: [{
-            data: [model_Grafic.forEach(x => {
-                x.quantidade
-            })],
+            data: ["1", "2", "3"],
             backgroundColor: [
                 '#66BB6A',
                 '#EF5350',

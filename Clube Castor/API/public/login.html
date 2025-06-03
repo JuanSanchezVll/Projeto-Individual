@@ -76,17 +76,44 @@
 
     var email = input_email.value;
     var senha = input_senha.value;
-    var emaillogin = 'juan@hotmail.com';
-    var emailsenha = "123";
 
-    if (email == "" || senha == "") {
-      alert(`Preencha todos os campos obrigatórios`);
-    } else if (!email.includes("@")) {
-      alert(`Preencha com um email válido`);
-    } else if (email == emaillogin && senha == emailsenha) {
-      window.location.href = "index-dashboard.html"; // Faz a navegação automática para logar na index dadashboard
-    } else {
-      div_mensagemerro.innerHTML = `<span style="color: red;">Email ou Senha incorretos!</span>`;
-    }
+    
+        if (email == "" || senha == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            return false;
+        }
+
+
+            fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+            if (resposta.ok) {
+                console.log("chegou a resposta");
+
+                resposta.json().then(json => {
+                    sessionStorage.EMAIL_USUARIO = json[0].email;
+                    sessionStorage.NOME_USUARIO = json[0].nome;
+                    sessionStorage.ID_USUARIO = json[0].id; 
+                    
+                    window.location.href = "index-dashboard.html";
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
   }
 </script>

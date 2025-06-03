@@ -67,7 +67,7 @@
                 <span>|</span>
                 <div class="container-mini-profile">
                     <img src="https://cdn-icons-png.flaticon.com/512/2733/2733336.png" alt="">
-                    <p>Juan David</p>
+                    <p id="nome_user_login"></p>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
         <div class="container-info-fermenter">
             <div class="info">
                 <h2 class="title-info">Seja bem vindo novamente</h2><br>
-                <h4>Juan David Valle Sánchez</h3><br>
+                <h4 id="nome_user"></h3><br>
                     <div class="kpis">
                         <div class="kpi temp">
                             <h3>Cargo</h3>
@@ -133,37 +133,7 @@
                     <h4>Histórico</h4>
                     <p>Acessar Mais ></p>
                 </div>
-                <div class="container-history">
-                    <div class="history">
-                        <img src="./assets/alert-critico.png" alt="">
-                        <div class="data-history">
-                            <h4>Alerta Crítico</h4>
-                            <p>Fermentadora 10 (IPA) Ultrapassou o limite máximo permitido...</p>
-                        </div>
-                        <p class="datatime-history">25/04/25 às 09:56</p>
-                    </div>
-
-                    <div class="history">
-                        <img src="https://cdn-icons-png.flaticon.com/512/257/257195.png" alt="">
-                        <div class="data-history">
-                            <h4>Atenção</h4>
-                            <p>Fermentadora 6 (IPA) Está 2 graus celsius acima do limite...</p>
-                        </div>
-                        <p class="datatime-history">25/04/25 às 09:60</p>
-                    </div>
-
-                    <div class="history">
-                        <img src="https://img.freepik.com/vetores-premium/icone-de-avisos-de-notificacao_1076610-18996.jpg?semt=ais_hybrid&w=740"
-                            alt="">
-                        <div class="data-history">
-                            <h4>Cuidado</h4>
-                            <p>Fermentadora 4 (IPA) atingiu o limite máximo do ideal 22°C</p>
-                        </div>
-                        <p class="datatime-history">25/04/25 às 10:10</p>
-                    </div>
-
-
-                </div>
+                <div class="container-history" id="historico">
             </div>
         </div>
     </div>
@@ -174,4 +144,80 @@
 </body>
 
 </html>
-<script src="./js/chartJs-Home.js"></script>
+<script src="./js/chartJs-Home.js">
+
+</script>
+<script>
+
+var model_Grafic = [];
+var usuario;
+var historico = [];
+
+function Load() {
+    fetch(`/dashInicial/buscarLeads/${1}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(res => {
+         res.json().then(response => {
+            console.log(response);
+            usuario = response[0];
+            });
+        }).catch(error => {
+            console.log(error);
+        });
+
+
+    fetch("/dashInicial/buscarInfoGrafic", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }).then(res => {
+        res.json().then(response => {
+            console.log(response);
+            model_Grafic = response;
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+
+    fetch("/dashInicial/buscarHistorico", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }).then((res) => {
+        res.json().then(response => {
+            console.log(response);
+            historico = response;
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+
+    document.getElementById("cargo_user").innerHTML += `<p class="data-kpi">${usuario.cargo}</p>`;
+    document.getElementById("unidade_user").innerHTML += `<p class="data-kpi">${usuario.unidade}</p>`;
+    document.getElementById("classe_user").innerHTML += `<p class="data-kpi">${usuario.classe}</p>`;
+    document.getElementById("especialidade_user").innerHTML += `<p class="data-kpi">${usuario.especialidade}</p>`;
+
+    nome_user.innerHTML = usuario.Nome;
+    nome_user_login.innerHTML = usuario.Nome;
+
+
+            historico.forEach(item => {
+            document.getElementById("historico").innerHTML += `
+                    <div class="history">
+                        <img src="https://img.freepik.com/vetores-premium/icone-de-avisos-de-notificacao_1076610-18996.jpg?semt=ais_hybrid&w=740"
+                            alt="">
+                        <div class="data-history">
+                            <h4>${item.login}</h4>
+                            <p>Logou no Sitstema!</p>
+                        </div>
+                        <p class="datatime-history">${item.dataLogin}</p>
+                    </div>
+                    `
+        });
+}
+</script>
