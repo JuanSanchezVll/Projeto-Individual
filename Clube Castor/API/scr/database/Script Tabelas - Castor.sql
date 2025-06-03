@@ -1,29 +1,31 @@
--- CREATE DATABASE clube_Castor;
+CREATE DATABASE clube_Castor;
 
 USE clube_castor;
 
 SHOW DATABASES;
 
--- DROP database clube_castor;
+ -- DROP database clube_castor;
 
 -- MANUTENCAO
 
-CREATE TABLE UNIDADE (
-idUnidade INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE UNIDADES (
+idUnidades INT PRIMARY KEY AUTO_INCREMENT,
 NOME_UNIDADE VARCHAR(50),
 QTD_MEMBROS INT,
 GENERO VARCHAR(15)
 );
 
-INSERT INTO UNIDADE (NOME_UNIDADE, QTD_MEMBROS, GENERO) VALUES
+INSERT INTO UNIDADES (NOME_UNIDADE, QTD_MEMBROS, GENERO) VALUES
 ('Leões', 8, 'M'),
 ('Guepardos', 8, 'M'),
 ('Panteras', 8, 'F'),
 ('Onças', 8, 'F');
 
-DESCRIBE UNIDADE;
 
-SELECT * FROM UNIDADE;
+
+DESCRIBE UNIDADES;
+
+SELECT * FROM UNIDADEs;
 
 CREATE TABLE CARGO (
 idCargo INT PRIMARY KEY AUTO_INCREMENT,
@@ -56,26 +58,26 @@ EMAIL VARCHAR(100),
 TELEFONE VARCHAR(11),
 DT_NASCIMENTO DATE,
 SENHA VARCHAR(15),
-ID_CARGO INT,
-ID_UNIDADE INT not NULL,
-constraint fkcargo foreign key (ID_CARGO) 
-references CARGO (idCargos),
-constraint fkunidade foreign key (ID_UNIDADE) 
-references UNIDADE (idUnidades)
-);
+idCargo INT,
+idUnidades INT not NULL,
+constraint fkcargo foreign key (idCargo) 
+references CARGO (idCargo),
+constraint fkunidade foreign key (idUnidades) 
+references UNIDADES (idUnidades));
+
 
 SELECT * FROM USUARIO;
-DROP TABLE USUARIO;
+-- DROP TABLE USUARIO;
 
-
-INSERT INTO USUARIO (NOME, EMAIL, TELEFONE, DT_NASCIMENTO, SENHA, ID_CARGO, ID_UNIDADE ) VALUES 
+INSERT INTO USUARIO (NOME, EMAIL, TELEFONE, DT_NASCIMENTO, SENHA, IDCargo, IDuniDaDes ) VALUES 
 ('Isabella Roxo', 'roxinho@gmail.com','11940028922', '2004-08-31','rouxinol@Me',2,3),
 ('Weslley Santos', 'wesley@gmail.com','11940028922', '2004-08-31','Senha@123',8,1),
-('Maria Santos', 'mari@gmail.com','11940028922', '2004-08-31','Senha@123',5, NULL),
-('Cintia Lima', 'luz@gmail.com','11940028922', '2004-08-31','Senha@123',1, NULL),
-('Gevanildo Lima', 'jevas@gmail.com','11940028922', '2004-08-31','Senha@123',2, NULL),
+('Maria Santos', 'mari@gmail.com','11940028922', '2004-08-31','Senha@123',5, 2),
+('Cintia Lima', 'luz@gmail.com','11940028922', '2004-08-31','Senha@123',1, 1),
+('Gevanildo Lima', 'jevas@gmail.com','11940028922', '2004-08-31','Senha@123',2, 2),
 ('Lucas Cavalcante', 'luka@gmail.com','11940028922', '2004-08-31','Senha@123',2,2),
 ('Sara Mattos', 'sara@gmail.com','11940028922', '2004-08-31','Senha@123',3,4);
+
 
 
 -- SELECT ID as IdUsuario, Nome, Email, Telefone, Dt_Nascimento as DataNascimento, Senha, ID_CARGO as IdCargo, ID_UNIDADE as IdUnidade 
@@ -179,14 +181,15 @@ INSERT INTO USUARIO_CLASSE (ID_CLASSE, ID_USUARIO, DT_INCLUSAO) VALUES
 (4,3, NOW()),
 (5,4, NOW()),
 (6,1, NOW()),
-(7,7, NOW());
+(6,7, NOW());
 
 SELECT * FROM USUARIO_CLASSE;
 
-
 CREATE TABLE USUARIO_ESPECIALIDADE (
 ID_ESPECIALIDADE INT,
+FOREIGN KEY (ID_ESPECIALIDADE) REFERENCES ESPECIALIDADES(idEspecialidades),
 ID_USUARIO INT,
+FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(idUsuario),
 DT_INCLUSAO DATE
 );
 
@@ -212,20 +215,19 @@ QT_ACERTOS INT,
 QTD_ERROS INT,	
 DATA_INCLUSAO DATE,
 ID_USUARIO INT,
-CONSTRAINT Fk_Usuario_quiz FOREIGN KEY (ID) REFERENCES USUARIO (IDUSUARIO)
+CONSTRAINT Fk_Usuario_quiz FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO (idUsuario)
 );
 
-
-SELECT COUNT(*) as Total FROM DADOS_QUIZ ;
+SELECT * FROM USUARIO_CLASSE;
 
 
 CREATE TABLE HISTORICO_LOGIN (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+idHistorico INT PRIMARY KEY AUTO_INCREMENT,
 LOGIN VARCHAR(20),
 DT_LOGIN DATE
 );
 
-SELECT * FROM HISTORICO_LOGIN; 
+SELECT DISTINCT LOGIN, DT_LOGIN as DataLogin FROM HISTORICO_LOGIN ORDER BY DT_LOGIN DESC; 
 
 
 -- CREATE TABLE QUIZ (

@@ -113,16 +113,6 @@
                             </div>
                             <canvas id="graphic-statusFermenter" style="width: 100%; height: 100%;"></canvas>
                         </div>
-                        <div class="graphics">
-                            <div class="info-graphic">
-                                <h3>Fermentadoras por Faixa de Temperatura</h3>
-                                <div class="filter-ipa-pilsen" id="filter_ipa_pilsen">
-                                    <button class="check" onclick="verIPA()" id="btn_ipa">IPA</button>
-                                    <button class="" onclick="verPilsen()" id="btn_pilsen">Pilsen</button>
-                                </div>
-                            </div>
-                            <canvas id="graphic-tempMediaIPA" style="width: 100%; height: 90%;"></canvas>
-                        </div>
                     </div>
 
             </div>
@@ -154,6 +144,7 @@ var usuario;
 var historico = [];
 
 function Load() {
+
     fetch(`/dashInicial/buscarLeads/${1}`, {
         method: "GET",
         headers: {
