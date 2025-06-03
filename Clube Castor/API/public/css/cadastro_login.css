@@ -3,6 +3,19 @@
     height: 100px;
 }
 
+#cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 7px;
+    height: 28px;
+    width: 80px;
+    border: #f71d00 solid 3px;
+}
+
+
 #login,
 #cadastro {
     display: flex;
@@ -219,7 +232,7 @@ button {
 
 .card-cadastro h2 {
     font-size: 1.6rem;
-    color: black;
+    color: rgb(255, 0, 0);
     padding: 0;
     margin: 2%;
 }
@@ -277,7 +290,7 @@ button {
     height: 30px;
     outline: none;
     border: 0;
-    border-bottom: 2px solid royalblue;
+    border-bottom: 2px solid rgb(255, 5, 5);
     align-self: flex-end;
 }
 
@@ -285,7 +298,7 @@ button {
     margin: 18px;
     width: 30%;
     height: 36px;
-    background-color: #0f0e6c;
+    background-color: #ff2020;
     color: white;
     border: 0;
     border-radius: 5px;
@@ -295,7 +308,7 @@ button {
 }
 
 .formulario button:hover {
-    background: #0056cc;
+    background: #ff1212;
 }
 
 .formulario .buttons {

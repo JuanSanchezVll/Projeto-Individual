@@ -89,11 +89,11 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
           if(!(classe == listaClasses.length -1)){
 
-            queryInsertClasse += `((select idMembro from membro order by idMembro desc limit 1), ${listaClasses[classe]}, NOW()),`;
+            queryInsertClasse += `((select idUsuario from USUARIO order by ID desc limit 1), ${listaClasses[classe]}, NOW()),`;
 
           }
 
-          queryInsertClasse += `((select idMembro from membro order by idMembro desc limit 1), ${listaClasses[classe]}, NOW());`;
+          queryInsertClasse += `((select idUsuario from USUARIO order by ID desc limit 1), ${listaClasses[classe]}, NOW());`;
 
         }
 
@@ -116,11 +116,11 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
           if(!(especialidade == listaEspecialidades.length -1)){
 
-            queryInsertEspecialidade += `((select idMembro from membro order by idMembro desc limit 1), ${listaEspecialidades[especialidade]}, NOW()),`;
+            queryInsertEspecialidade += `((select idUsuario from USUARIO order by ID desc limit 1), ${listaEspecialidades[especialidade]}, NOW()),`;
 
           }
 
-          queryInsertEspecialidade += `((select idMembro from membro order by idMembro desc limit 1), ${listaEspecialidades[especialidade]}, NOW());`;
+          queryInsertEspecialidade += `((select idUsuario from USUARIO order by ID desc limit 1), ${listaEspecialidades[especialidade]}, NOW());`;
 
         }
 

@@ -1,60 +1,70 @@
+-- CREATE DATABASE clube_Castor;
+
 USE clube_castor;
+
+SHOW DATABASES;
+
+-- DROP database clube_castor;
 
 -- MANUTENCAO
 
-CREATE TABLE UNIDADES (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE UNIDADE (
+idUnidade INT PRIMARY KEY AUTO_INCREMENT,
 NOME_UNIDADE VARCHAR(50),
 QTD_MEMBROS INT,
-GENERO VARCHAR(2)
+GENERO VARCHAR(15)
 );
 
-INSERT INTO UNIDADES (NOME_UNIDADE, QTD_MEMBROS, GENERO) VALUES
+INSERT INTO UNIDADE (NOME_UNIDADE, QTD_MEMBROS, GENERO) VALUES
 ('Leões', 8, 'M'),
 ('Guepardos', 8, 'M'),
-('Panteras', 8, 'F'),111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111                                                                                                                                                                                          
+('Panteras', 8, 'F'),
 ('Onças', 8, 'F');
 
-DESCRIBE UNIDADES
+DESCRIBE UNIDADE;
 
-SELECT * FROM UNIDADES;
+SELECT * FROM UNIDADE;
 
-CREATE TABLE CARGOS (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE CARGO (
+idCargo INT PRIMARY KEY AUTO_INCREMENT,
 NOME VARCHAR(50),
 AFAZERES VARCHAR(200)
 );
 
-INSERT INTO CARGOS (NOME, AFAZERES) VALUES
+INSERT INTO CARGO (NOME, AFAZERES) VALUES
 ('Diretor', 'Ser um exemplo e inspiração, insentivar os membros do Clube, manter a organização e Exercer uma boa comunicação | Ser responsavel Oficial'),
 ('Diretor Associado', 'Ser um exemplo e inspiração, insentivar os membros do Clube, manter a organização e Exercer uma boa comunicação'),
 ('Secretario', 'Adminstrar os documentos, solicitações, agendas e frequencia dos membros do Clube'),
 ('Tesoureiro', 'Administrar e Organizar as entradas e saídas do dinheiro do Clube'),
-('Capelão', 'Manter e incentivar o cuidado com a parte espiritual do Clube'),
 ('Conselheiro', 'Liderar, Incentivar e cuidar da Unidade'),
+('Conselheiro Associado', 'Apoio, Incentivar e cuidar da Unidade'),
 ('Instrutor', 'Ensinar e acompanhar os cadernos de classe e especialidades'),
-('Almoxarife', 'Gestoriar e Organizar os materiais e estrutura do Clube'),
 
 ('Capitão - Unidade', 'Ser um exemplo e inspiração, insentivar os membros da Unidade, manter a organização e Exercer uma boa comunicação'),
 ('Secretario - Unidade', 'Adminstrar os documentos, solicitações, agendas e frequencia dos membros da Unidade'),
 ('Tesoureiro - Unidade', 'Administrar e Organizar as entradas e saídas do dinheiro da Unidade'),
 ('Capelão - Unidade', 'Manter e incentivar o cuidado com a parte espiritual da Unidade');
 
-SELECT * FROM CARGOS;
+SELECT * FROM CARGO;
 
 -- USUARIO 
 
 CREATE TABLE USUARIO (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 NOME VARCHAR(50),
 EMAIL VARCHAR(100),
 TELEFONE VARCHAR(11),
 DT_NASCIMENTO DATE,
 SENHA VARCHAR(15),
 ID_CARGO INT,
-ID_UNIDADE INT NULL
+ID_UNIDADE INT not NULL,
+constraint fkcargo foreign key (ID_CARGO) 
+references CARGO (idCargos),
+constraint fkunidade foreign key (ID_UNIDADE) 
+references UNIDADE (idUnidades)
 );
 
+SELECT * FROM USUARIO;
 DROP TABLE USUARIO;
 
 
@@ -73,7 +83,7 @@ INSERT INTO USUARIO (NOME, EMAIL, TELEFONE, DT_NASCIMENTO, SENHA, ID_CARGO, ID_U
 -- WHERE Email = ${email} AND Senha = ${senha};
 
 CREATE TABLE ENDERECO (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 CEP VARCHAR(8),
 LOGRADOURO VARCHAR(50),
 NUMERO VARCHAR(10),
@@ -82,7 +92,7 @@ CIDADE VARCHAR(50),
 ESTADO VARCHAR(8),
 COMPLEMENTO VARCHAR(8) NULL,
 ID_USUARIO INT,
-FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(ID)
+FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(idUsuario)
 );
 
 DROP TABLE ENDERECO;
@@ -100,28 +110,22 @@ INSERT INTO ENDERECO (CEP, LOGRADOURO, NUMERO, BAIRRO, CIDADE, ESTADO, COMPLEMEN
 -- TABELAS AUXILIARES
 
 CREATE TABLE CLASSES (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+idClasses INT PRIMARY KEY AUTO_INCREMENT,
 NOME_CLASSE VARCHAR(50)
 );
 
 INSERT INTO CLASSES (NOME_CLASSE) VALUES
 ('Amigo'),
-('Amigo da Natureza'),
 ('Companheiro'),
-('Companheiro de Excursões'),
 ('Pesquisador'),
-('Pesquisador da Natureza'),
 ('Pioneiro'),
-('Pioneiro de Novas Fronteiras'),
 ('Excursionista'),
-('Excursionista de Selva'),
-('Guia'),
-('Guia de Exploração');
+('Guia'); 
 
 SELECT * FROM CLASSES;
 
 CREATE TABLE ESPECIALIDADES (
-ID INT PRIMARY KEY AUTO_INCREMENT,
+idEspecialidades INT PRIMARY KEY AUTO_INCREMENT,
 NOME VARCHAR(100),
 TIPO VARCHAR(100)
 );
@@ -157,7 +161,9 @@ SELECT * FROM ESPECIALIDADES;
 
 CREATE TABLE USUARIO_CLASSE (
 ID_CLASSE INT,
+FOREIGN KEY (ID_CLASSE) REFERENCES CLASSES(idClasses),
 ID_USUARIO INT,
+FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(idUsuario),
 DT_INCLUSAO DATE
 );
 
@@ -205,7 +211,8 @@ ID INT PRIMARY KEY AUTO_INCREMENT,
 QT_ACERTOS INT,
 QTD_ERROS INT,	
 DATA_INCLUSAO DATE,
-ID_USUARIO INT
+ID_USUARIO INT,
+CONSTRAINT Fk_Usuario_quiz FOREIGN KEY (ID) REFERENCES USUARIO (IDUSUARIO)
 );
 
 
