@@ -13,6 +13,7 @@ function redirecionarHome() {
     window.location = "index.html"
 }
 
+
 const categorias = [
 
     {

@@ -4,13 +4,9 @@ function autenticar(email, senha) {
 
   console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
 
-
-
-
   var query = `SELECT IdUsuario, Nome, Email, Telefone, Dt_Nascimento as DataNascimento, Senha, IdCargo, IdUnidades
                FROM USUARIO
                WHERE Email = '${email}' AND Senha = '${senha}'`;
-
 
 
   console.log("Executando a instrução SQL: \n" + query);
@@ -18,15 +14,13 @@ function autenticar(email, senha) {
   var result = database.executar(query);
 
 
-
-  if ( result != null && result.length > 0) {
+  if (result != null && result.length > 0) {
 
     var queryHistorico = `INSERT INTO HISTORICO_LOGIN (LOGIN, DT_LOGIN) VALUES ('${email}', NOW())`;
 
     database.executar(queryHistorico);
 
   }
-
 
 
   return result;
@@ -53,9 +47,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
     var queryInsertUsuario = `
 
-        INSERT INTO USUARIO (nome, email, telefone, Dt_nascimento, senha, id_cargo, id_unidade) VALUES ('${nome}', '${email}', '${telefone}', '${dtNasc}', '${senha}', ${idCargo}, ${idUnidade});
-
-        `;
+        INSERT INTO USUARIO (NOME, EMAIL, TELEFONE, DT_NASCIMENTO, senha, idCargo, idUnidades) VALUES ('${nome}', '${email}', '${telefone}', '${dtNasc}', '${senha}', ${idCargo}, ${idUnidade})`;
 
 
 
@@ -109,7 +101,7 @@ async function cadastrar(nome, dtNasc, telefone, email, senha, cep, rua, numero,
 
       if (!(especialidade == listaEspecialidades.length - 1)) {
 
-        queryInsertEspecialidade += `(${listaEspecialidades[especialidade++]}, (select idUsuario from USUARIO order by idUsuario desc limit 1), NOW()),`;
+        queryInsertEspecialidade += `(${listaEspecialidades[especialidade++]},(select idUsuario from USUARIO order by idUsuario desc limit 1), NOW()),`;
 
       }
 
